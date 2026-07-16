@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public interface Validators
+    public interface IValidator
     {
         void Validate(ParsedArguments parsedArguments);
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class Retry : Commands
+    public class Retry : ICommand
     {
         public void Execute()
         {

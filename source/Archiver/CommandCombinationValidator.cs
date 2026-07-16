@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class CommandCombinationValidator : Validators
+    public class CommandCombinationValidator : IValidator
     {
         public void Validate(ParsedArguments parsedArguments)
         {

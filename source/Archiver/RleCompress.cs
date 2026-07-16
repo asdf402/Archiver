@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class RleCompress : Commands
+    public class RleCompress : ICommand
     {
         public void Execute()
         {

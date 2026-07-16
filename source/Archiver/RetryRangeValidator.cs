@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class RetryRangeValidator : Validators
+    public class RetryRangeValidator : IValidator
     {
         public void Validate(ParsedArguments parsedArguments)
         {

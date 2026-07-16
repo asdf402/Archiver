@@ -5,8 +5,4 @@ using System.Text;
 
 namespace Archiver
 {
-    public interface ICommand
-    {
-        void Execute();
-    }
 }

@@ -7,7 +7,8 @@ namespace Archiver
 {
     public class ParsedArguments
     {
-        public bool HasCreate
+
+        public ulong RetryAmount
         {
             get => default;
             set
@@ -15,7 +16,7 @@ namespace Archiver
             }
         }
 
-        public bool HasAppend
+        public DateTime WaitTime
         {
             get => default;
             set
@@ -23,7 +24,7 @@ namespace Archiver
             }
         }
 
-        public bool HasExtract
+        public string Source
         {
             get => default;
             set
@@ -31,7 +32,15 @@ namespace Archiver
             }
         }
 
-        public int HasRleCompress
+        public string Destination
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public MainCommands MainCommand
         {
             get => default;
             set

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class SourceExistsValidator : Validators
+    public class SourceExistsValidator : IValidator
     {
         public void Validate(ParsedArguments parsedArguments)
         {

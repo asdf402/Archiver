@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class WaitRangeValidator : Validators
+    public class WaitRangeValidator : IValidator
     {
         public void Validate(ParsedArguments parsedArguments)
         {

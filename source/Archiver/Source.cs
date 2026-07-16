@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class Source : Commands
+    public class Source : ICommand
     {
         public void Execute()
         {

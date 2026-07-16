@@ -5,8 +5,13 @@ using System.Text;
 
 namespace Archiver
 {
-    public interface ICommand
+    public enum MainCommands
     {
-        void Execute();
+        Create,
+        Append,
+        Extract,
+        Info,
+        List,
+        None
     }
 }

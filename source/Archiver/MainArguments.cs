@@ -5,16 +5,17 @@ using System.Text;
 
 namespace Archiver
 {
-    public class Invoker
+    public class MainArgument
     {
-        private ICommand command;
-
-        public void SetCommand(ICommand command)
+        public ICommand MainCommand
         {
-            throw new System.NotImplementedException();
+            get => default;
+            set
+            {
+            }
         }
 
-        public void ExecuteCommand()
+        public void SetMainCommand()
         {
             throw new System.NotImplementedException();
         }
