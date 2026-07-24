@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Archiver/Archiver.csproj" />
+  <Project Path="UnitTests/UnitTests.csproj" Id="9a1767b1-7f90-4e09-ae25-6671e73c6fe3" />
 </Solution>
