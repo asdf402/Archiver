@@ -1,31 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class Application
     {
-        string[] commandLineArguments;
+        private Parser parser;
 
-        Parser parser;
-        ValidationService validationService;
-
-        public Application(string[] commandLineArguments)
+        public Application()
         {
-            this.commandLineArguments = commandLineArguments;
-
-            parser = new Parser();
-            validationService = new ValidationService();
+            this.parser = new Parser();
         }
 
-        public void Run()
+        public void Run(string[] commandLineArguments)
         {
-            ParsedArguments parsedArguments;
+            ParsedResult parsedResult;
 
-            parsedArguments = parser.Parse(commandLineArguments);
-            validationService.Validate(parsedArguments);
+            parsedResult = this.parser.Parse(commandLineArguments);
+            if (parsedResult.Result.ErrorOccured)
+            {
+                parsedResult.Result.ErrorMessage?.Invoke(parsedResult.Result.WrongArgument);
+            }
         }
     }
 }
