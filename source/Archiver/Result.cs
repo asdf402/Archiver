@@ -11,11 +11,6 @@
             this.WrongArgument = wrongArgument;
         }
 
-        public Result(bool errorOccured)
-        {
-            this.ErrorOccured = errorOccured;
-        }
-
         public bool ErrorOccured
         {
             get;
