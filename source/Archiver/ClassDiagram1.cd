@@ -164,12 +164,12 @@
   <Class Name="Archiver.ConsoleOutput">
     <Position X="24.5" Y="1.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAYAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>ConsoleOutput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Archiver.Result">
-    <Position X="20.75" Y="2.75" Width="2.5" />
+    <Position X="20.75" Y="2.5" Width="2.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -185,18 +185,18 @@
       <FileName>ParsedResult.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Archiver.CommandDefaults">
+    <Position X="16.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABBAAAAAAAAAIAAAAgAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommandDefaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Archiver.Parser">
     <Position X="11.5" Y="4.25" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAgEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Parser.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Archiver.CommandDefaults">
-    <Position X="16.75" Y="2.25" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAABBAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CommandDefaults.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Archiver.ICommand">
