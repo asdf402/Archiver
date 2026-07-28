@@ -19,10 +19,18 @@
             string source = this.commandDefaults.Path;
             string destination = this.commandDefaults.Path;
 
+            if (commandLineArguments.Length <= 0)
+            {
+                return new ParsedResult(
+                new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
+                new Result(true, ConsoleOutput.WriteNoArgumentsToParse, string.Empty));
+            }
+
             int currentArgumentNumber = 0;
             string currentArgument = commandLineArguments[currentArgumentNumber];
 
-            if (this.ParsePrimaryArgument(currentArgument, out mainCommand))
+            // check if the first argument is a valid primary command
+            if (!this.ParsePrimaryArgument(currentArgument, out mainCommand))
             {
                 return new ParsedResult(
                     new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
@@ -31,18 +39,38 @@
 
             currentArgumentNumber++;
 
+            // same for these local varaibles
             bool errorOccured = false;
+            ErrorMessage errorMessage = ConsoleOutput.WriteNoErrorOccured;
+            string wrongArgument = currentArgument;
 
             while (currentArgumentNumber < commandLineArguments.Length)
             {
+                currentArgument = commandLineArguments[currentArgumentNumber];
+
+                // look for arguments whitch do not require a parameter
                 switch (currentArgument)
                 {
                     case "-rle" or "--rleCompress":
                         rleCompress = true;
-                        break;
-
-                    case "-r" or "--retry":
                         currentArgumentNumber++;
+                        continue;
+                }
+
+                // check if the array is big enough for a follow-up parameter
+                if (currentArgumentNumber + 1 >= commandLineArguments.Length)
+                {
+                    errorOccured = true;
+                    errorMessage = ConsoleOutput.WriteMissingParameterForArgumentError;
+                    wrongArgument = currentArgument;
+                    break;
+                }
+
+                // look for arguments whitch require a parameter
+                switch (currentArgument)
+                {
+                    case "-r" or "--retry":
+                        currentArgument = commandLineArguments[++currentArgumentNumber];
                         if (!byte.TryParse(currentArgument, out retryAmount))
                         {
                             errorOccured = true;
@@ -51,21 +79,23 @@
                         break;
 
                     case "-w" or "--wait":
-                        currentArgumentNumber++;
-                        if (!TimeSpan.TryParse(currentArgument, out waitAmount))
+                        currentArgument = commandLineArguments[++currentArgumentNumber];
+                        int temp;
+                        if (!int.TryParse(currentArgument, out temp))
                         {
                             errorOccured = true;
                         }
 
+                        waitAmount = new TimeSpan(hours: 0, minutes: 0, seconds: temp);
                         break;
 
                     case "-s" or "--source":
-                        currentArgumentNumber++;
+                        currentArgument = commandLineArguments[++currentArgumentNumber];
                         source = currentArgument;
                         break;
 
                     case "-d" or "--destination":
-                        currentArgumentNumber++;
+                        currentArgument = commandLineArguments[++currentArgumentNumber];
                         destination = currentArgument;
                         break;
 
@@ -76,9 +106,9 @@
 
                 if (errorOccured)
                 {
-                    return new ParsedResult(
-                        new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
-                        new Result(true, ConsoleOutput.WriteWrongSecondaryArgumentsError, currentArgument));
+                    errorMessage = ConsoleOutput.WriteWrongSecondaryArgumentsError;
+                    wrongArgument = currentArgument;
+                    break;
                 }
 
                 currentArgumentNumber++;
@@ -86,7 +116,7 @@
 
             return new ParsedResult(
                 new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
-                new Result(false));
+                new Result(errorOccured, errorMessage, wrongArgument));
         }
 
         // returns true if no error occured
@@ -98,14 +128,14 @@
             switch (firstArgument)
             {
                 case "-c" or "--create":
-                    mainCommand = MainCommands.Append;
+                    mainCommand = MainCommands.Create;
                     break;
 
                 case "-a" or "--append":
                     mainCommand = MainCommands.Append;
                     break;
 
-                case "-x" or "--extraxt":
+                case "-x" or "--extract":
                     mainCommand = MainCommands.Extract;
                     break;
 
