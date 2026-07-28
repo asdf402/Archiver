@@ -12,12 +12,12 @@
         public ParsedResult Parse(string[] commandLineArguments)
         {
             // create local varaibles to have private setters in the ParsedArguments class
-            MainCommands mainCommand = MainCommands.None;
+            MainCommands mainCommand = this.commandDefaults.MainCommand;
             bool rleCompress = this.commandDefaults.RleCompress;
             byte retryAmount = this.commandDefaults.RetryAmount;
             TimeSpan waitAmount = this.commandDefaults.WaitTime;
-            string source = string.Empty;
-            string destination = string.Empty;
+            string source = this.commandDefaults.Path;
+            string destination = this.commandDefaults.Path;
 
             int currentArgumentNumber = 0;
             string currentArgument = commandLineArguments[currentArgumentNumber];

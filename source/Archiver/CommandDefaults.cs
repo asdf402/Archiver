@@ -25,5 +25,21 @@
                 return false;
             }
         }
+
+        public string Path
+        {
+            get
+            {
+                return string.Empty;
+            }
+        }
+
+        public MainCommands MainCommand
+        {
+            get
+            {
+                return MainCommands.None;
+            }
+        }
     }
 }
