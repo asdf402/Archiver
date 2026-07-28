@@ -1,51 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class ParsedArguments
     {
-
-        public ulong RetryAmount
+        public ParsedArguments(
+            bool rleCompress,
+            byte retryAmount,
+            TimeSpan waitTime,
+            string source,
+            string destination,
+            MainCommands mainCommand)
         {
-            get => default;
-            set
-            {
-            }
+            this.RleCompress = rleCompress;
+            this.RetryAmount = retryAmount;
+            this.WaitTime = waitTime;
+            this.Source = source;
+            this.Destination = destination;
+            this.MainCommand = mainCommand;
         }
 
-        public DateTime WaitTime
+        public bool RleCompress
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
+        }
+
+        public byte RetryAmount
+        {
+            get;
+            private set;
+        }
+
+        public TimeSpan WaitTime
+        {
+            get;
+            private set;
         }
 
         public string Source
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public string Destination
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public MainCommands MainCommand
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
     }
 }

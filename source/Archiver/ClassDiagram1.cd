@@ -104,32 +104,9 @@
   <Class Name="Archiver.Application">
     <Position X="11.5" Y="1.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAI=</HashCode>
       <FileName>Application.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Archiver.Parser">
-    <Position X="11.5" Y="4.25" Width="4" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Parser.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Archiver.CommandCombinationValidator">
-    <Position X="20.5" Y="8.5" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CommandCombinationValidator.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="Archiver.SourceExistsValidator">
-    <Position X="16.25" Y="10.25" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SourceExistsValidator.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.RequiredArgumentsValidator">
     <Position X="16.25" Y="8.5" Width="3.75" />
@@ -140,22 +117,22 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.ParsedArguments">
-    <Position X="16.25" Y="4.25" Width="3.25" />
+    <Position X="20.75" Y="5" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAgAAAAAAAAAgAAAAEAAAAAAEAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABBAAAAgAAAAAAAAAgAAAAEAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>ParsedArguments.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Archiver.DestinationExistsValidator">
-    <Position X="20.5" Y="10.25" Width="3.75" />
+  <Class Name="Archiver.PathDestinationTypeValidator">
+    <Position X="20.5" Y="8.5" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DestinationExistsValidator.cs</FileName>
+      <FileName>PathDestinationTypeValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.RetryRangeValidator">
-    <Position X="16.25" Y="12" Width="3.75" />
+    <Position X="20.5" Y="10.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RetryRangeValidator.cs</FileName>
@@ -163,7 +140,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.WaitRangeValidator">
-    <Position X="20.5" Y="12" Width="3.75" />
+    <Position X="16.25" Y="10.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WaitRangeValidator.cs</FileName>
@@ -178,10 +155,48 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Archiver.Invoker">
-    <Position X="11.5" Y="8.25" Width="3.5" />
+    <Position X="11.5" Y="8.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Invoker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.ConsoleOutput">
+    <Position X="24.5" Y="1.5" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>ConsoleOutput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.Result">
+    <Position X="20.75" Y="2.5" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Result.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.ParsedResult">
+    <Position X="16.25" Y="4" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ParsedResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.CommandDefaults">
+    <Position X="16.75" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABBAAAAAAAAAIAAAAgAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommandDefaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.Parser">
+    <Position X="11.5" Y="4.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAgEAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Parser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Archiver.ICommand">
@@ -199,7 +214,7 @@
     </TypeIdentifier>
   </Interface>
   <Enum Name="Archiver.MainCommands">
-    <Position X="20" Y="4.25" Width="1.5" />
+    <Position X="24.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAUAAAAAAAEEAAAI=</HashCode>
       <FileName>MainCommands.cs</FileName>
