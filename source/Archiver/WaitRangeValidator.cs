@@ -2,15 +2,15 @@
 {
     public class WaitRangeValidator : IValidator
     {
-        public bool Validate(ParsedArguments parsedArguments)
+        public bool IsValid(ParsedArguments parsedArguments)
         {
             if (TimeSpan.Compare(parsedArguments.WaitTime, new TimeSpan(0, 0, 01)) < 0 ||
                 TimeSpan.Compare(parsedArguments.WaitTime, new TimeSpan(0, 0, 10)) > 0)
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
     }
 }
