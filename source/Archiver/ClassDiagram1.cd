@@ -164,7 +164,7 @@
   <Class Name="Archiver.ConsoleOutput">
     <Position X="24.5" Y="1.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAgAAQAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>ConsoleOutput.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -210,7 +210,7 @@
     <Position X="16.25" Y="6.75" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Validators.cs</FileName>
+      <FileName>IValidator.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Archiver.MainCommands">
