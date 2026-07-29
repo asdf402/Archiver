@@ -7,7 +7,7 @@ namespace Archiver
 {
     public class PathDestinationTypeValidator : IValidator
     {
-        public bool Validate(ParsedArguments parsedArguments)
+        public bool IsValid(ParsedArguments parsedArguments)
         {
             throw new NotImplementedException();
         }
