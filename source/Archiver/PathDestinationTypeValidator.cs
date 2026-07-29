@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Archiver
 {
-    public class RequiredArgumentsValidator : IValidator
+    public class PathDestinationTypeValidator : IValidator
     {
         public bool Validate(ParsedArguments parsedArguments)
         {
