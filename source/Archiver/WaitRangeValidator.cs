@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class WaitRangeValidator : IValidator
     {
-        public void Validate(ParsedArguments parsedArguments)
+        public bool Validate(ParsedArguments parsedArguments)
         {
-            throw new NotImplementedException();
+            if (TimeSpan.Compare(parsedArguments.WaitTime, new TimeSpan(0, 0, 01)) < 0 ||
+                TimeSpan.Compare(parsedArguments.WaitTime, new TimeSpan(0, 0, 10)) > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

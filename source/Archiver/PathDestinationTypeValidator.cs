@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Archiver
 {
-    public class SourceExistsValidator : IValidator
+    public class PathDestinationTypeValidator : IValidator
     {
-        public void Validate(ParsedArguments parsedArguments)
+        public bool Validate(ParsedArguments parsedArguments)
         {
             throw new NotImplementedException();
         }
