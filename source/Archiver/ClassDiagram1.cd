@@ -111,7 +111,7 @@
   <Class Name="Archiver.RequiredArgumentsValidator">
     <Position X="16.25" Y="8.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>gAAAAAIAgAAAAAAAAAgQAAAgAACAABACAAAAAAAgAAA=</HashCode>
       <FileName>RequiredArgumentsValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -123,14 +123,6 @@
       <FileName>ParsedArguments.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Archiver.PathDestinationTypeValidator">
-    <Position X="20.5" Y="8.5" Width="3.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PathDestinationTypeValidator.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
   <Class Name="Archiver.RetryRangeValidator">
     <Position X="20.5" Y="10.25" Width="3.75" />
     <TypeIdentifier>
@@ -140,7 +132,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.WaitRangeValidator">
-    <Position X="16.25" Y="10.25" Width="3.75" />
+    <Position X="16.25" Y="12.25" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WaitRangeValidator.cs</FileName>
@@ -164,7 +156,7 @@
   <Class Name="Archiver.ConsoleOutput">
     <Position X="24.5" Y="1.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAgAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAQAAKAAAAAgAAQAAAAgAAIAQAAAAAg=</HashCode>
       <FileName>ConsoleOutput.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -209,7 +201,7 @@
   <Interface Name="Archiver.IValidator">
     <Position X="16.25" Y="6.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IValidator.cs</FileName>
     </TypeIdentifier>
   </Interface>
