@@ -7,6 +7,6 @@ namespace Archiver
 {
     public interface IValidator
     {
-        void Validate(ParsedArguments parsedArguments);
+        bool IsValid(ParsedArguments parsedArguments);
     }
 }

@@ -111,7 +111,7 @@
   <Class Name="Archiver.RequiredArgumentsValidator">
     <Position X="16.25" Y="8.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RequiredArgumentsValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -126,7 +126,7 @@
   <Class Name="Archiver.PathDestinationTypeValidator">
     <Position X="20.5" Y="8.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PathDestinationTypeValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -134,7 +134,7 @@
   <Class Name="Archiver.RetryRangeValidator">
     <Position X="20.5" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RetryRangeValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -142,7 +142,7 @@
   <Class Name="Archiver.WaitRangeValidator">
     <Position X="16.25" Y="10.25" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>WaitRangeValidator.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -150,12 +150,12 @@
   <Class Name="Archiver.ValidationService">
     <Position X="11.5" Y="6.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQgAAAEAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ValidationService.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Archiver.Invoker">
-    <Position X="11.5" Y="8.25" Width="3" />
+    <Position X="11.5" Y="9.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Invoker.cs</FileName>
@@ -164,7 +164,7 @@
   <Class Name="Archiver.ConsoleOutput">
     <Position X="24.5" Y="1.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAIAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAQAAKAAAAAgAAQAAAAgAAIAQAAAAAg=</HashCode>
       <FileName>ConsoleOutput.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -209,8 +209,8 @@
   <Interface Name="Archiver.IValidator">
     <Position X="16.25" Y="6.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Validators.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IValidator.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Archiver.MainCommands">

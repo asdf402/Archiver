@@ -7,7 +7,7 @@ namespace Archiver
 {
     public class RequiredArgumentsValidator : IValidator
     {
-        public void Validate(ParsedArguments parsedArguments)
+        public bool IsValid(ParsedArguments parsedArguments)
         {
             throw new NotImplementedException();
         }
