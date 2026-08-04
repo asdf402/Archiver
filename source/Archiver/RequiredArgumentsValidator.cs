@@ -79,7 +79,7 @@
             if (this.HasSource(parsedArguments.Source))
             {
                 // dont needs: -d, rle
-                if (!this.HasDestination(parsedArguments.Destination) ||
+                if (!this.HasDestination(parsedArguments.Destination) &&
                     !this.HasRle(parsedArguments.RleCompress))
                 {
                     return true;
@@ -96,7 +96,7 @@
             if (this.HasSource(parsedArguments.Source))
             {
                 // dont needs: -d, rle
-                if (!this.HasDestination(parsedArguments.Destination) ||
+                if (!this.HasDestination(parsedArguments.Destination) &&
                     !this.HasRle(parsedArguments.RleCompress))
                 {
                     return true;
