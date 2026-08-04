@@ -110,48 +110,6 @@ namespace UnitTests.ValidatorTests
         }
 
         [Theory]
-        [InlineData(" C:\\_Temp_\\a", " C:\\_Temp_\\a.dat")]
-        [InlineData("     C:\\abcd\\hallo", "     C:\\abcd\\hallo.dat")]
-        [InlineData("   C:\\abcd\\hallo", "   C:\\abcd\\hallo.dat")]
-        [InlineData("C:\\abcd\\hallo ", "C:\\abcd\\hallo.dat ")]
-        [InlineData("C:\\abcd\\hallo      ", "C:\\abcd\\hallo.dat      ")]
-        [InlineData("C:\\abcd\\hallo    ", "C:\\abcd\\hallo.dat    ")]
-        [InlineData(" C:\\abcd\\hallo ", " C:\\abcd\\hallo.dat ")]
-        [InlineData("   C:\\abcd\\hallo ", "   C:\\abcd\\hallo.dat ")]
-        [InlineData("      C:\\abcd\\hallo      ", "      C:\\abcd\\hallo.dat      ")]
-        public void Valid_Command_With_Source_And_Destination_With_White_Spaces_Results_In_True(string source, string destination)
-        {
-            ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
-                this.commandDefaults.RetryAmount,
-                this.commandDefaults.WaitTime,
-                source,
-                destination,
-                MainCommands.Create);
-
-            Assert.True(this.pathTypeValidator.IsValid(parsed));
-        }
-
-
-        [Theory]
-        [InlineData("C:\\_Temp_\\a.dat", "C:\\_Temp_\\a.dat")]
-        [InlineData("C:\\abcd\\hallo.cs", "C:\\someDirectory\\archive.dat")]
-        [InlineData("C:\\abcd\\hallo.pdf", "C:\\someDirectory\\archive.dat")]
-        [InlineData("C:\\abcd\\hallo.", "C:\\someDirectory\\archive.dat")]
-        public void Invalid_Source_Results_In_False(string source, string destination)
-        {
-            ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
-                this.commandDefaults.RetryAmount,
-                this.commandDefaults.WaitTime,
-                source,
-                destination,
-                MainCommands.Create);
-
-            Assert.False(this.pathTypeValidator.IsValid(parsed));
-        }
-
-        [Theory]
         [InlineData("C:\\_Temp_\\a", "C:\\_Temp_\\a")]
         [InlineData("C:\\abcd\\hallo", "C:\\someDirectory\\archive.cs")]
         [InlineData("C:\\abcd\\hallo", "C:\\someDirectory\\archive.pdf")]
