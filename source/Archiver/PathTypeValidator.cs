@@ -31,8 +31,7 @@
 
         private bool IsCreatePathValid(string source, string destination)
         {
-            if (Path.EndsInDirectorySeparator(source) &&
-                this.IsRightExtensionType(destination, ".dat"))
+            if (this.IsRightExtensionType(destination, ".dat"))
             {
                 return true;
             }
@@ -42,8 +41,7 @@
 
         private bool IsAppendPathValid(string source, string destination)
         {
-            if (Path.EndsInDirectorySeparator(source) &&
-                this.IsRightExtensionType(destination, ".dat"))
+            if (this.IsRightExtensionType(destination, ".dat"))
             {
                 return true;
             }
@@ -53,8 +51,7 @@
 
         private bool IsExtractPathValid(string source, string destination)
         {
-            if (Path.EndsInDirectorySeparator(destination) &&
-                this.IsRightExtensionType(source, ".dat"))
+            if (this.IsRightExtensionType(source, ".dat"))
             {
                 return true;
             }
