@@ -1,39 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class FileInformation
     {
-        public FileInformation()
+        public FileInformation(string fileName, long fileSizeUncompressed, long fileSizeCompressed)
         {
-            throw new System.NotImplementedException();
+            this.FileName = fileName;
+            this.FileSizeUncompressed = fileSizeUncompressed;
+            this.FileSizeCompressed = fileSizeCompressed;
         }
 
         public string FileName
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public long FileSizeUncompressed
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public long FileSizeCompressed
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
     }
 }
