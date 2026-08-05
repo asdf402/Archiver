@@ -1,47 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class MetaInformation
     {
-        public MetaInformation()
+        public MetaInformation(DateTime creationDate, bool rleCompressed, uint fileAmount, long filesSizeUncompressed)
         {
-            throw new System.NotImplementedException();
+            this.CreationDate = creationDate;
+            this.RleCompressed = rleCompressed;
+            this.FileAmount = fileAmount;
+            this.FilesSizeUncompressed = filesSizeUncompressed;
         }
 
         public DateTime CreationDate
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public bool RleCompressed
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public uint FileAmount
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
-        public long FileSizesUncompressed
+        public long FilesSizeUncompressed
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
     }
 }
