@@ -2,7 +2,7 @@
 {
     public class Archive
     {
-        public Archive(MetaInformation metaInformation, FileInformation fileInformation)
+        public Archive(MetaInformation metaInformation, List<FileInformation> fileInformation)
         {
             this.MetaInformation = metaInformation;
             this.FileInformation = fileInformation;
@@ -14,7 +14,7 @@
             private set;
         }
 
-        public FileInformation FileInformation
+        public List<FileInformation> FileInformation
         {
             get;
             private set;
