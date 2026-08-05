@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class Archive
     {
+        public Archive(MetaInformation metaInformation, FileInformation fileInformation)
+        {
+            this.MetaInformation = metaInformation;
+            this.FileInformation = fileInformation;
+        }
+
         public MetaInformation MetaInformation
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
 
         public FileInformation FileInformation
         {
-            get => default;
-            set
-            {
-            }
+            get;
+            private set;
         }
     }
 }
