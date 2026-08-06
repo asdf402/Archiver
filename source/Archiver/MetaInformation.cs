@@ -33,5 +33,15 @@
             get;
             private set;
         }
+
+        public void AddFileAmount(uint addedFileAmount)
+        {
+            this.FileAmount += addedFileAmount;
+        }
+
+        public void AddFileSizeUncompressed(long addedFileSizeUncompressed)
+        {
+            this.FilesSizeUncompressed += addedFileSizeUncompressed;
+        }
     }
 }
