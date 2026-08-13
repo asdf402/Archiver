@@ -2,12 +2,48 @@
 {
     public class MetaInformation
     {
-        public MetaInformation(DateTime creationDate, bool rleCompressed, uint fileAmount, long filesSizeUncompressed)
+        public MetaInformation(DateTime creationDate, ICompress compress, uint fileAmount, long filesSizeUncompressed)
         {
             this.CreationDate = creationDate;
-            this.RleCompressed = rleCompressed;
+            this.Compress = compress;
             this.FileAmount = fileAmount;
             this.FilesSizeUncompressed = filesSizeUncompressed;
+
+            switch (compress)
+            {
+                case NoCompress:
+                    this.CompressType = 0;
+                    break;
+
+                case RleCompress:
+                    this.CompressType = 1;
+                    break;
+
+                default:
+                    throw new ArgumentException("compress type does not exist here");
+            }
+        }
+
+        public MetaInformation(DateTime creationDate, uint compressType, uint fileAmount, long filesSizeUncompressed)
+        {
+            this.CreationDate = creationDate;
+            this.CompressType = compressType;
+            this.FileAmount = fileAmount;
+            this.FilesSizeUncompressed = filesSizeUncompressed;
+
+            switch (compressType)
+            {
+                case 0:
+                    this.Compress = new NoCompress();
+                    break;
+
+                case 1:
+                    this.Compress = new RleCompress();
+                    break;
+
+                default:
+                    throw new ArgumentException("compress type does not exist here");
+            }
         }
 
         public DateTime CreationDate
@@ -16,10 +52,32 @@
             private set;
         }
 
-        public bool RleCompressed
+        public long CreationDateFilePosition
+        {
+            get
+            {
+                return 11;
+            }
+        }
+
+        public ICompress Compress
         {
             get;
             private set;
+        }
+
+        public uint CompressType
+        {
+            get;
+            private set;
+        }
+
+        public uint CompressTypeFilePosition
+        {
+            get
+            {
+                return 7;
+            }
         }
 
         public uint FileAmount
@@ -28,15 +86,31 @@
             private set;
         }
 
+        public uint FileAmountFilePosition
+        {
+            get
+            {
+                return 19;
+            }
+        }
+
         public long FilesSizeUncompressed
         {
             get;
             private set;
         }
 
-        public void AddFileAmount(uint addedFileAmount)
+        public long FilesSizeUncompressedFilePosition
         {
-            this.FileAmount += addedFileAmount;
+            get
+            {
+                return 23;
+            }
+        }
+
+        public void IncreaseFileAmount()
+        {
+            this.FileAmount++;
         }
 
         public void AddFileSizeUncompressed(long addedFileSizeUncompressed)
