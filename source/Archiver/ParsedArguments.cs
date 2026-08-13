@@ -3,14 +3,14 @@
     public class ParsedArguments
     {
         public ParsedArguments(
-            bool rleCompress,
+            ICompress compress,
             byte retryAmount,
             TimeSpan waitTime,
             string source,
             string destination,
             MainCommands mainCommand)
         {
-            this.RleCompress = rleCompress;
+            this.Compress = compress;
             this.RetryAmount = retryAmount;
             this.WaitTime = waitTime;
             this.Source = source;
@@ -18,7 +18,7 @@
             this.MainCommand = mainCommand;
         }
 
-        public bool RleCompress
+        public ICompress Compress
         {
             get;
             private set;

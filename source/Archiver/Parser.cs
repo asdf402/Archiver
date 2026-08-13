@@ -11,9 +11,9 @@
 
         public ParsedResult Parse(string[] commandLineArguments)
         {
-            // create local varaibles to have private setters in the ParsedArguments class
+            // create local variables to have private setters in the ParsedArguments class
             MainCommands mainCommand = this.commandDefaults.MainCommand;
-            bool rleCompress = this.commandDefaults.RleCompress;
+            ICompress compress = this.commandDefaults.Compress;
             byte retryAmount = this.commandDefaults.RetryAmount;
             TimeSpan waitAmount = this.commandDefaults.WaitTime;
             string source = this.commandDefaults.Path;
@@ -22,7 +22,7 @@
             if (commandLineArguments.Length <= 0)
             {
                 return new ParsedResult(
-                new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
+                new ParsedArguments(compress, retryAmount, waitAmount, source, destination, mainCommand),
                 new Result(true, ConsoleOutput.WriteNoArgumentsToParse, string.Empty));
             }
 
@@ -33,26 +33,26 @@
             if (!this.ParsePrimaryArgument(currentArgument, out mainCommand))
             {
                 return new ParsedResult(
-                    new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
+                    new ParsedArguments(compress, retryAmount, waitAmount, source, destination, mainCommand),
                     new Result(true, ConsoleOutput.WriteWrongPrimaryArgumentError, currentArgument));
             }
 
             currentArgumentNumber++;
 
-            // same for these local varaibles
-            bool errorOccured = false;
-            ErrorMessage errorMessage = ConsoleOutput.WriteNoErrorOccured;
+            // same for these local variables
+            bool errorOccurred = false;
+            ErrorMessage errorMessage = ConsoleOutput.WriteNoErrorOccurred;
             string wrongArgument = currentArgument;
 
             while (currentArgumentNumber < commandLineArguments.Length)
             {
                 currentArgument = commandLineArguments[currentArgumentNumber];
 
-                // look for arguments whitch do not require a parameter
+                // look for arguments which do not require a parameter
                 switch (currentArgument)
                 {
                     case "-rle" or "--rleCompress":
-                        rleCompress = true;
+                        compress = new RleCompress();
                         currentArgumentNumber++;
                         continue;
                 }
@@ -60,7 +60,7 @@
                 // check if the array is big enough for a follow-up parameter
                 if (currentArgumentNumber + 1 >= commandLineArguments.Length)
                 {
-                    errorOccured = true;
+                    errorOccurred = true;
                     errorMessage = ConsoleOutput.WriteMissingParameterForArgumentError;
                     wrongArgument = currentArgument;
                     break;
@@ -73,7 +73,7 @@
                         currentArgument = commandLineArguments[++currentArgumentNumber];
                         if (!byte.TryParse(currentArgument, out retryAmount))
                         {
-                            errorOccured = true;
+                            errorOccurred = true;
                         }
 
                         break;
@@ -83,7 +83,7 @@
                         int temp;
                         if (!int.TryParse(currentArgument, out temp))
                         {
-                            errorOccured = true;
+                            errorOccurred = true;
                         }
 
                         waitAmount = new TimeSpan(hours: 0, minutes: 0, seconds: temp);
@@ -100,11 +100,11 @@
                         break;
 
                     default:
-                        errorOccured = true;
+                        errorOccurred = true;
                         break;
                 }
 
-                if (errorOccured)
+                if (errorOccurred)
                 {
                     errorMessage = ConsoleOutput.WriteWrongSecondaryArgumentsError;
                     wrongArgument = currentArgument;
@@ -115,8 +115,8 @@
             }
 
             return new ParsedResult(
-                new ParsedArguments(rleCompress, retryAmount, waitAmount, source, destination, mainCommand),
-                new Result(errorOccured, errorMessage, wrongArgument));
+                new ParsedArguments(compress, retryAmount, waitAmount, source, destination, mainCommand),
+                new Result(errorOccurred, errorMessage, wrongArgument));
         }
 
         // returns true if no error occured
