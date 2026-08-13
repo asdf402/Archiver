@@ -17,7 +17,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Create_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -31,7 +31,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Create_With_Rle_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -45,7 +45,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Append_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -59,7 +59,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Append_With_Rle_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -73,7 +73,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Extract_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source.dat",
@@ -87,10 +87,10 @@ namespace UnitTests.ValidatorTests
         public void Valid_Extract_With_Rle_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
-                "source.dats",
+                "source.dat",
                 "destination",
                 MainCommands.Extract);
 
@@ -101,7 +101,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Info_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -115,7 +115,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_Info_With_Rle_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -129,7 +129,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_Info_With_Destination_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -143,7 +143,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_List_Returns_True()
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -157,7 +157,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_List_With_Rle_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",
@@ -171,7 +171,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_List_With_Destination_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
-                true,
+                new RleCompress(),
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 "source",

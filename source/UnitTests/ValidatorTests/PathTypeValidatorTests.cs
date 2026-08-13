@@ -19,7 +19,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Create_Command_With_Source_And_Destination_Results_In_True(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -35,7 +35,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Append_Command_With_Source_And_Destination_Results_In_True(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -51,7 +51,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Extract_Command_With_Source_And_Destination_Results_In_True(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -67,7 +67,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Info_Command_With_Source_And_Destination_Results_In_True(string source)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -83,7 +83,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_List_Command_With_Source_And_Destination_Results_In_True(string source)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -99,7 +99,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_None_Command_With_Source_And_Destination_Results_In_False(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -117,7 +117,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_Destination_Results_In_False(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -134,7 +134,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Source_And_Destination_On_Linux_Results_In_True(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,
@@ -150,7 +150,7 @@ namespace UnitTests.ValidatorTests
         public void Destination_Extension_With_Different_Casing_Results_In_False(string source, string destination)
         {
             ParsedArguments parsed = new ParsedArguments(
-                this.commandDefaults.RleCompress,
+                this.commandDefaults.Compress,
                 this.commandDefaults.RetryAmount,
                 this.commandDefaults.WaitTime,
                 source,

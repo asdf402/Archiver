@@ -18,11 +18,11 @@
             }
         }
 
-        public bool RleCompress
+        public ICompress Compress
         {
             get
             {
-                return false;
+                return new NoCompress();
             }
         }
 

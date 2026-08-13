@@ -33,7 +33,7 @@
             }
         }
 
-        // allowes: -rle, -r, -w
+        // allows: -rle, -r, -w
         private bool CreateValidation(ParsedArguments parsedArguments)
         {
             // needs: -s, -d
@@ -46,7 +46,7 @@
             return false;
         }
 
-        // allowes: -rle, -r, -w
+        // allows: -rle, -r, -w
         private bool AppendValidation(ParsedArguments parsedArguments)
         {
             // needs: -s, -d
@@ -59,7 +59,7 @@
             return false;
         }
 
-        // allowes: -rle, -r, -w
+        // allows: -rle, -r, -w
         private bool ExtractValidation(ParsedArguments parsedArguments)
         {
             // needs: -s, -d
@@ -72,15 +72,15 @@
             return false;
         }
 
-        // allowes: -r, -w
+        // allows: -r, -w
         private bool InfoValidation(ParsedArguments parsedArguments)
         {
             // needs: -s
             if (this.HasSource(parsedArguments.Source))
             {
-                // dont needs: -d, rle
+                // does not need: -d, rle
                 if (!this.HasDestination(parsedArguments.Destination) &&
-                    !this.HasRle(parsedArguments.RleCompress))
+                    !this.HasCompress(parsedArguments.Compress))
                 {
                     return true;
                 }
@@ -89,15 +89,15 @@
             return false;
         }
 
-        // allowes: -r, -w
+        // allows: -r, -w
         private bool ListValidation(ParsedArguments parsedArguments)
         {
             // needs: -s
             if (this.HasSource(parsedArguments.Source))
             {
-                // dont needs: -d, rle
+                // not needs: -d, rle
                 if (!this.HasDestination(parsedArguments.Destination) &&
-                    !this.HasRle(parsedArguments.RleCompress))
+                    !this.HasCompress(parsedArguments.Compress))
                 {
                     return true;
                 }
@@ -126,9 +126,14 @@
             return true;
         }
 
-        private bool HasRle(bool rle)
+        private bool HasCompress(ICompress rle)
         {
-            return rle;
+            if (rle is NoCompress)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
