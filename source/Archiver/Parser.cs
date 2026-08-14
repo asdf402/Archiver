@@ -23,7 +23,7 @@
             {
                 return new ParsedResult(
                 new ParsedArguments(compress, retryAmount, waitAmount, source, destination, mainCommand),
-                new Result(true, ConsoleOutput.WriteNoArgumentsToParse, string.Empty));
+                new Result(true, ConsoleErrorOutput.WriteNoArgumentsToParse, string.Empty));
             }
 
             int currentArgumentNumber = 0;
@@ -34,14 +34,14 @@
             {
                 return new ParsedResult(
                     new ParsedArguments(compress, retryAmount, waitAmount, source, destination, mainCommand),
-                    new Result(true, ConsoleOutput.WriteWrongPrimaryArgumentError, currentArgument));
+                    new Result(true, ConsoleErrorOutput.WriteWrongPrimaryArgumentError, currentArgument));
             }
 
             currentArgumentNumber++;
 
             // same for these local variables
             bool errorOccurred = false;
-            ErrorMessage errorMessage = ConsoleOutput.WriteNoErrorOccurred;
+            ErrorMessage errorMessage = ConsoleErrorOutput.WriteNoErrorOccurred;
             string wrongArgument = currentArgument;
 
             while (currentArgumentNumber < commandLineArguments.Length)
@@ -61,7 +61,7 @@
                 if (currentArgumentNumber + 1 >= commandLineArguments.Length)
                 {
                     errorOccurred = true;
-                    errorMessage = ConsoleOutput.WriteMissingParameterForArgumentError;
+                    errorMessage = ConsoleErrorOutput.WriteMissingParameterForArgumentError;
                     wrongArgument = currentArgument;
                     break;
                 }
@@ -106,7 +106,7 @@
 
                 if (errorOccurred)
                 {
-                    errorMessage = ConsoleOutput.WriteWrongSecondaryArgumentsError;
+                    errorMessage = ConsoleErrorOutput.WriteWrongSecondaryArgumentsError;
                     wrongArgument = currentArgument;
                     break;
                 }

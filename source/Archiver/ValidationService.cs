@@ -17,18 +17,18 @@
         {
             if (!this.requiredArgumentsValidator.IsValid(parsedArguments))
             {
-                return new Result(true, ConsoleOutput.WriteWrongArgumentCombination, parsedArguments.MainCommand.ToString());
+                return new Result(true, ConsoleErrorOutput.WriteWrongArgumentCombination, parsedArguments.MainCommand.ToString());
             }
             else if (!this.retryRangeValidator.IsValid(parsedArguments))
             {
-                return new Result(true, ConsoleOutput.WriteWrongRetryAmount, parsedArguments.RetryAmount.ToString());
+                return new Result(true, ConsoleErrorOutput.WriteWrongRetryAmount, parsedArguments.RetryAmount.ToString());
             }
             else if (!this.waitRangeValidator.IsValid(parsedArguments))
             {
-                return new Result(true, ConsoleOutput.WriteWrongWaitTime, parsedArguments.RetryAmount.ToString());
+                return new Result(true, ConsoleErrorOutput.WriteWrongWaitTime, parsedArguments.RetryAmount.ToString());
             }
 
-            return new Result(false, ConsoleOutput.WriteNoErrorOccurred, string.Empty);
+            return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, string.Empty);
         }
     }
 }

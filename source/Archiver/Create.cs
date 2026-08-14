@@ -47,7 +47,7 @@
                         }
                         catch (IOException)
                         {
-                            return new Result(true, ConsoleOutput.WriteCouldNotOpenSource, "creating an Archive");
+                            return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenSource, "creating an Archive");
                         }
 
                         metaInformation.AddFileSizeUncompressed(fileInformation.FileSizeUncompressed);
@@ -59,11 +59,11 @@
                     archiveWriter.WriteChangedMetaInformation(writer, metaInformation.FilesSizeUncompressed, metaInformation.FileAmount);
                 }
 
-                return new Result(false, ConsoleOutput.WriteNoErrorOccurred, "creating an Archive");
+                return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, "creating an Archive");
             }
             catch (IOException)
             {
-                return new Result(true, ConsoleOutput.WriteCouldNotOpenDestination, "creating an Archive");
+                return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenDestination, "creating an Archive");
             }
         }
     }
