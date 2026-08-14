@@ -53,7 +53,11 @@
             if (this.HasSource(parsedArguments.Source) &&
                 this.HasDestination(parsedArguments.Destination))
             {
-                return true;
+                // does not need: -rle
+                if (!this.HasCompress(parsedArguments.Compress))
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -66,7 +70,11 @@
             if (this.HasSource(parsedArguments.Source) &&
                 this.HasDestination(parsedArguments.Destination))
             {
-                return true;
+                // does not need: -rle
+                if (!this.HasCompress(parsedArguments.Compress))
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -78,7 +86,7 @@
             // needs: -s
             if (this.HasSource(parsedArguments.Source))
             {
-                // does not need: -d, rle
+                // does not need: -d, -rle
                 if (!this.HasDestination(parsedArguments.Destination) &&
                     !this.HasCompress(parsedArguments.Compress))
                 {
@@ -95,7 +103,7 @@
             // needs: -s
             if (this.HasSource(parsedArguments.Source))
             {
-                // not needs: -d, rle
+                // not needs: -d, -rle
                 if (!this.HasDestination(parsedArguments.Destination) &&
                     !this.HasCompress(parsedArguments.Compress))
                 {

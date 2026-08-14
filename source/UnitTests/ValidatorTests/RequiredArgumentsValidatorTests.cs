@@ -56,7 +56,7 @@ namespace UnitTests.ValidatorTests
         }
 
         [Fact]
-        public void Valid_Append_With_Rle_Returns_True()
+        public void Valid_Append_With_Rle_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
                 new RleCompress(),
@@ -66,7 +66,7 @@ namespace UnitTests.ValidatorTests
                 "destination.dat",
                 MainCommands.Append);
 
-            Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
+            Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace UnitTests.ValidatorTests
         }
 
         [Fact]
-        public void Valid_Extract_With_Rle_Returns_True()
+        public void Valid_Extract_With_Rle_Returns_False()
         {
             ParsedArguments parsed = new ParsedArguments(
                 new RleCompress(),
@@ -94,7 +94,7 @@ namespace UnitTests.ValidatorTests
                 "destination",
                 MainCommands.Extract);
 
-            Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
+            Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
 
         [Fact]
