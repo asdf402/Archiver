@@ -1,0 +1,13 @@
+[ArchiveHeader]		string	| position 00 - 06 ("ARCHIVE")
+
+[CompressType]		uint	| position 07 - 10
+[CreationDateTicks]	long	| position 11 - 18
+[FileAmount]		uint	| position 19 - 22
+[FilesSizeUncompressed]	long	| position 23 - 30
+				(from here position will change, only counts for create)
+[FileSizeCompressed]	long	| position 31 - 38
+[FileSizeUncompressed]	long	| position 39 11- 46
+[FileNameLength]	int	| position 47 - 50
+[FileName]		string	| position 51
+
+[File]			some binary data
