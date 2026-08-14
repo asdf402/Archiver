@@ -2,7 +2,7 @@
 {
     public class Create : ICommand
     {
-        public void Execute(ParsedArguments parsedArguments)
+        public Result Execute(ParsedArguments parsedArguments)
         {
             long fileInformationPosition;
 
@@ -36,11 +36,18 @@
 
                         archiveWriter.WriteFileInformation(writer, fileInformation);
 
-                        FileStream sourceStream = new FileStream(file, FileMode.Open);
-                        using (BinaryReader reader = new BinaryReader(sourceStream))
+                        try
                         {
-                            fileInformation.AddFileSizeCompressed(
-                                parsedArguments.Compress.Execute(reader, writer));
+                            FileStream sourceStream = new FileStream(file, FileMode.Open);
+                            using (BinaryReader reader = new BinaryReader(sourceStream))
+                            {
+                                fileInformation.AddFileSizeCompressed(
+                                    parsedArguments.Compress.Execute(reader, writer));
+                            }
+                        }
+                        catch (IOException)
+                        {
+                            return new Result(true, ConsoleOutput.WriteCouldNotOpenSource, "creating an Archive");
                         }
 
                         metaInformation.AddFileSizeUncompressed(fileInformation.FileSizeUncompressed);
@@ -51,10 +58,12 @@
 
                     archiveWriter.WriteChangedMetaInformation(writer, metaInformation.FilesSizeUncompressed, metaInformation.FileAmount);
                 }
+
+                return new Result(false, ConsoleOutput.WriteNoErrorOccurred, "creating an Archive");
             }
             catch (IOException)
             {
-
+                return new Result(true, ConsoleOutput.WriteCouldNotOpenDestination, "creating an Archive");
             }
         }
     }

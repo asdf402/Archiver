@@ -7,7 +7,7 @@ namespace Archiver
 {
     public class Info : ICommand
     {
-        public void Execute(ParsedArguments parsedArguments)
+        public Result Execute(ParsedArguments parsedArguments)
         {
             throw new NotImplementedException();
         }

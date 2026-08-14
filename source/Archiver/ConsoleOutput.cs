@@ -58,6 +58,16 @@ $@"{parsedArgument} should follow a describing parameter:
             Console.WriteLine($"the wait time should be between 1 and 10 seconds, yours {wrongWaitTime}");
         }
 
+        public static void WriteCouldNotOpenDestination(string wrongArgument)
+        {
+            Console.WriteLine("Could not open or missed rights to read from the destination");
+        }
+
+        public static void WriteCouldNotOpenSource(string wrongArgument)
+        {
+            Console.WriteLine("Could not open or missed rights to read from the source");
+        }
+
         private static void WritePrimaryCommands()
         {
             Console.WriteLine(

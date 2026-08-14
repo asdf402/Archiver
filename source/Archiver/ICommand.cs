@@ -2,6 +2,6 @@
 {
     public interface ICommand
     {
-        void Execute(ParsedArguments parsedArguments);
+        Result Execute(ParsedArguments parsedArguments);
     }
 }
