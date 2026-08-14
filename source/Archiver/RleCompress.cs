@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
-    public class RleCompress : ICommand
+    public class RleCompress : ICompress
     {
-        public void Execute()
+        public long Execute(BinaryReader reader, BinaryWriter writer)
         {
             throw new NotImplementedException();
         }

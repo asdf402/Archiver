@@ -119,7 +119,7 @@
 
             Assert.False(parsedResult.Result.ErrorOccured);
             Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
-            Assert.True(parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<RleCompress>(parsedResult.ParsedArguments.Compress);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
@@ -147,7 +147,7 @@
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.WaitTime, parsedResult.ParsedArguments.WaitTime);
-            Assert.Equal(this.commandDefaults.RleCompress, parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<NoCompress>(parsedResult.ParsedArguments.Compress);
         }
 
         [Theory]
@@ -171,7 +171,7 @@
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
-            Assert.Equal(this.commandDefaults.RleCompress, parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<NoCompress>(parsedResult.ParsedArguments.Compress);
         }
 
         [Theory]
@@ -196,7 +196,7 @@
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
             Assert.Equal(this.commandDefaults.WaitTime, parsedResult.ParsedArguments.WaitTime);
-            Assert.Equal(this.commandDefaults.RleCompress, parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<NoCompress>(parsedResult.ParsedArguments.Compress);
         }
 
         [Theory]
@@ -221,7 +221,7 @@
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
             Assert.Equal(this.commandDefaults.WaitTime, parsedResult.ParsedArguments.WaitTime);
-            Assert.Equal(this.commandDefaults.RleCompress, parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<NoCompress>(parsedResult.ParsedArguments.Compress);
         }
 
         [Fact]
@@ -248,7 +248,7 @@
             Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("C:\\Temp\\Input", parsedResult.ParsedArguments.Source);
             Assert.Equal("archive.dat", parsedResult.ParsedArguments.Destination);
-            Assert.True(parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<RleCompress>(parsedResult.ParsedArguments.Compress);
             Assert.Equal(3, parsedResult.ParsedArguments.RetryAmount);
             Assert.Equal(TimeSpan.FromSeconds(5), parsedResult.ParsedArguments.WaitTime);
         }
@@ -361,7 +361,7 @@
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
             Assert.Equal(this.commandDefaults.WaitTime, parsedResult.ParsedArguments.WaitTime);
-            Assert.Equal(this.commandDefaults.RleCompress, parsedResult.ParsedArguments.RleCompress);
+            Assert.IsType<NoCompress>(parsedResult.ParsedArguments.Compress);
         }
     }
 }

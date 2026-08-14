@@ -28,7 +28,7 @@
                 return new Result(true, ConsoleOutput.WriteWrongWaitTime, parsedArguments.RetryAmount.ToString());
             }
 
-            return new Result(false, ConsoleOutput.WriteNoErrorOccured, string.Empty);
+            return new Result(false, ConsoleOutput.WriteNoErrorOccurred, string.Empty);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace UnitTests.ValidatorTests
         public void Valid_Numbers_Are_Inputed_And_Result_In_True(int waitTime)
         {
             ParsedArguments parsed = new ParsedArguments(
-                commandDefaults.RleCompress,
+                commandDefaults.Compress,
                 commandDefaults.RetryAmount,
                 new TimeSpan(0, 0, waitTime),
                 commandDefaults.Path,
@@ -41,7 +41,7 @@ namespace UnitTests.ValidatorTests
         public void Invalid_Numbers_Are_Inputed_And_Result_In_False(int waitTime)
         {
             ParsedArguments parsed = new ParsedArguments(
-                commandDefaults.RleCompress,
+                commandDefaults.Compress,
                 commandDefaults.RetryAmount,
                 new TimeSpan(0, 0, waitTime),
                 commandDefaults.Path,

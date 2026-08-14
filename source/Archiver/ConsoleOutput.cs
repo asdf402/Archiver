@@ -13,7 +13,7 @@ please use a main command as the primary command, a list of main commands:");
         public static void WriteWrongSecondaryArgumentsError(string parsedArgument)
         {
             Console.WriteLine(
-$@"{parsedArgument} is not a valid secundary argument.
+$@"{parsedArgument} is not a valid secondary argument.
 please use a valid secondary command after the main command:");
             WriteSecondaryCommands();
         }
@@ -28,9 +28,9 @@ $@"{parsedArgument} should follow a describing parameter:
     -d or --destination and a path");
         }
 
-        public static void WriteNoErrorOccured(string parsedArgument)
+        public static void WriteNoErrorOccurred(string parsedArgument)
         {
-            Console.WriteLine($"no error occured at {parsedArgument}");
+            Console.WriteLine($"no error occurred at {parsedArgument}");
         }
 
         public static void WriteNoArgumentsToParse(string parsedArgument)
@@ -38,7 +38,7 @@ $@"{parsedArgument} should follow a describing parameter:
             Console.WriteLine("please use one of the following commands as the primary command:");
             WritePrimaryCommands();
 
-            Console.WriteLine("\nafter that you can use the secundary commands:");
+            Console.WriteLine("\nafter that you can use the secondary commands:");
             WriteSecondaryCommands();
         }
 
@@ -50,12 +50,22 @@ $@"{parsedArgument} should follow a describing parameter:
 
         public static void WriteWrongRetryAmount(string wrongRetryAmount)
         {
-            Console.WriteLine($"the retry amount should be beween 1 and 10, yours {wrongRetryAmount}");
+            Console.WriteLine($"the retry amount should be between 1 and 10, yours {wrongRetryAmount}");
         }
 
         public static void WriteWrongWaitTime(string wrongWaitTime)
         {
-            Console.WriteLine($"the wait time should be beween 1 and 10 seconds, yours {wrongWaitTime}");
+            Console.WriteLine($"the wait time should be between 1 and 10 seconds, yours {wrongWaitTime}");
+        }
+
+        public static void WriteCouldNotOpenDestination(string wrongArgument)
+        {
+            Console.WriteLine("Could not open or missed rights to read from the destination");
+        }
+
+        public static void WriteCouldNotOpenSource(string wrongArgument)
+        {
+            Console.WriteLine("Could not open or missed rights to read from the source");
         }
 
         private static void WritePrimaryCommands()
@@ -63,9 +73,9 @@ $@"{parsedArgument} should follow a describing parameter:
             Console.WriteLine(
 @$"     -c or--create(creates an archive); needs - s and - d
     - a or--append(appends things to an existing archive); needs - s and - d
-    - x or--extract(extraxts everything from an existing archive); needs - s and - d
-    - i or--info(shows information about the archive); needs - s; dont use -rle or - d
-    - l or--list(shows the file names of the archives content); needs - s, dont use -rle or - d");
+    - x or--extract(extracts everything from an existing archive); needs - s and - d
+    - i or--info(shows information about the archive); needs - s; do not use -rle or - d
+    - l or--list(shows the file names of the archives content); needs - s, do not use -rle or - d");
         }
 
         private static void WriteSecondaryCommands()
