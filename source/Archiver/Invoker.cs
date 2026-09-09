@@ -2,7 +2,7 @@
 {
     public class Invoker
     {
-        private ICommand command;
+        private ICommand? command;
 
         public void SetCommand(MainCommands command)
         {
@@ -23,12 +23,19 @@
                 case MainCommands.List:
                     this.command = new List();
                     break;
+                default:
+                    throw new InvalidOperationException($"the given command ({command}) is not jet in the switch statment");
             }
         }
 
-        public void ExecuteCommand()
+        public Result ExecuteCommand(ParsedArguments parsedArguments)
         {
-            this.command.Execute();
+            if (this.command == null)
+            {
+                throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
+            }
+
+            return this.command.Execute(parsedArguments);
         }
     }
 }
