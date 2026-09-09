@@ -2,14 +2,24 @@
 {
     public static class ConsoleNormalOutput
     {
-        internal static void WriteFileInformation(FileInformation[] fileInformation)
+        public static void WriteEmptyLine()
         {
-            throw new NotImplementedException();
+            Console.WriteLine();
         }
 
-        internal static void WriteMetaInformation(MetaInformation metaInformation)
+        public static void WriteFileInformation(FileInformation fileInformation)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"File name: {fileInformation.FileName}");
+            Console.WriteLine($"Uncompressed file size: {fileInformation.FileSizeUncompressed}");
+            Console.WriteLine($"Compressed file size: {fileInformation.FileSizeCompressed}");
+        }
+
+        public static void WriteMetaInformation(MetaInformation metaInformation)
+        {
+            Console.WriteLine($"Archive creation date: {metaInformation.CreationDate}");
+            Console.WriteLine($"Archive compression type: {metaInformation.CompressType}");
+            Console.WriteLine($"Archive file amount: {metaInformation.FileAmount}");
+            Console.WriteLine($"Archive uncompressed filee sizes: {metaInformation.FilesSizeUncompressed}");
         }
     }
 }

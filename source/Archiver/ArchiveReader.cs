@@ -1,4 +1,6 @@
-﻿namespace Archiver
+﻿using System.Text;
+
+namespace Archiver
 {
     public class ArchiveReader
     {
@@ -9,7 +11,7 @@
             int fileNameLength = reader.ReadInt32();
 
             byte[] fileNameByte = reader.ReadBytes(fileNameLength);
-            string fileName = fileNameByte?.ToString() ?? string.Empty;
+            string fileName = Encoding.UTF8.GetString(fileNameByte);
 
             return new FileInformation(
                 fileName,

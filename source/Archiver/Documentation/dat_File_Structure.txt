@@ -8,6 +8,6 @@
 [FileSizeCompressed]	long	| position 31 - 38
 [FileSizeUncompressed]	long	| position 39 11- 46
 [FileNameLength]	int	| position 47 - 50
-[FileName]		string	| position 51
+[FileName]		byte[]	| position 51
 
 [File]			some binary data

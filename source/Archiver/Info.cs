@@ -9,6 +9,7 @@
             MetaInformation metaInformation;
             FileInformation[] fileInformation;
 
+            // read from the archive
             try
             {
                 FileStream source = new FileStream(parsedArguments.Source, FileMode.Open);
@@ -17,11 +18,10 @@
                     metaInformation = archiveReader.ReadMetaInformation(reader);
 
                     fileInformation = new FileInformation[metaInformation.FileAmount];
-
                     for (uint fileCounter = 0; fileCounter < metaInformation.FileAmount; fileCounter++)
                     {
                         fileInformation[fileCounter] = archiveReader.ReadFileInformation(reader);
-                        reader.BaseStream.Position += fileInformation[fileCounter].FileNameSize + fileInformation[fileCounter].FileSizeCompressed;
+                        reader.BaseStream.Position += fileInformation[fileCounter].FileSizeCompressed;
                     }
                 }
             }
@@ -30,8 +30,19 @@
                 return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenSource, "info execution");
             }
 
+            // write the infos to the console
+            // (is not done with the reading part to have as little instructions in the file stream as possible)
+            ConsoleNormalOutput.WriteEmptyLine();
             ConsoleNormalOutput.WriteMetaInformation(metaInformation);
-            ConsoleNormalOutput.WriteFileInformation(fileInformation);
+            ConsoleNormalOutput.WriteEmptyLine();
+
+            for (int fileCounter = 0; fileCounter < metaInformation.FileAmount; fileCounter++)
+            {
+                ConsoleNormalOutput.WriteFileInformation(fileInformation[fileCounter]);
+                ConsoleNormalOutput.WriteEmptyLine();
+            }
+
+            ConsoleNormalOutput.WriteEmptyLine();
 
             return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, "info execution");
         }

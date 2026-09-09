@@ -203,6 +203,10 @@ namespace Archiver.Tests
 
                 info.Execute(parsedArguments);
 
+                Result result = info.Execute(parsedArguments);
+
+                Assert.False(result.ErrorOccured);
+
                 string output = consoleOutput.ToString();
 
                 Assert.Contains("first.txt", output);
