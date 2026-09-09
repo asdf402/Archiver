@@ -1,22 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public class Invoker
     {
-        private ICommand command;
+        private ICommand? command;
 
-        public void SetCommand(ICommand command)
+        public void SetCommand(MainCommands command)
         {
-            throw new System.NotImplementedException();
+            switch (command)
+            {
+                case MainCommands.Append:
+                    this.command = new Append();
+                    break;
+                case MainCommands.Create:
+                    this.command = new Create();
+                    break;
+                case MainCommands.Extract:
+                    this.command = new Extract();
+                    break;
+                case MainCommands.Info:
+                    this.command = new Info();
+                    break;
+                case MainCommands.List:
+                    this.command = new List();
+                    break;
+                default:
+                    throw new InvalidOperationException($"the given command ({command}) is not jet in the switch statment");
+            }
         }
 
-        public void ExecuteCommand()
+        public Result ExecuteCommand(ParsedArguments parsedArguments)
         {
-            throw new System.NotImplementedException();
+            if (this.command == null)
+            {
+                throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
+            }
+
+            return this.command.Execute(parsedArguments);
         }
     }
 }

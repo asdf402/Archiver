@@ -1,6 +1,6 @@
 ﻿namespace Archiver
 {
-    public static class ConsoleOutput
+    public static class ConsoleErrorOutput
     {
         public static void WriteWrongPrimaryArgumentError(string parsedArgument)
         {
