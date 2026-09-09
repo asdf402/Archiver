@@ -21,7 +21,7 @@
   <Class Name="Archiver.MetaInformation">
     <Position X="1.25" Y="1.75" Width="7" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAARBAAAAAiAEAAAAAAAAAAAgAAAQAAAAAIAAA=</HashCode>
+      <HashCode>QAAAAAAARBAAAAAiAEAAAAAAAAAAAgAAAQAAAAAMAAA=</HashCode>
       <FileName>MetaInformation.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -98,7 +98,7 @@
   <Class Name="Archiver.Application">
     <Position X="24.75" Y="1.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAI=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAI=</HashCode>
       <FileName>Application.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -147,11 +147,11 @@
       <FileName>Invoker.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Archiver.ConsoleOutput">
+  <Class Name="Archiver.ConsoleErrorOutput">
     <Position X="47.75" Y="9" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAABAAAAKAAAAAgAAwAAAAgAAIAQQAAAAg=</HashCode>
-      <FileName>ConsoleOutput.cs</FileName>
+      <FileName>ConsoleErrorOutput.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Archiver.Result">
@@ -215,6 +215,20 @@
       <FileName>Create.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Archiver.ArchiveReader">
+    <Position X="13.75" Y="9.5" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ArchiveReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Archiver.ConsoleNormalOutput">
+    <Position X="47.75" Y="13" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>ConsoleNormalOutput.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="Archiver.ICommand">
     <Position X="1.25" Y="7" Width="3.75" />
