@@ -22,11 +22,11 @@
             Console.WriteLine($"Archive uncompressed filee sizes: {metaInformation.FilesSizeUncompressed}");
         }
 
-        public static void WriteFileNames(string[] filenames)
+        public static void WriteFileNames(FileInformation[] fileInformation)
         {
-            for (uint i = 0; i < filenames.Count(); i++)
+            for (uint i = 0; i < fileInformation.Count(); i++)
             {
-                Console.WriteLine(filenames[i]);
+                Console.WriteLine(fileInformation[i].FileName);
             }
         }
     }

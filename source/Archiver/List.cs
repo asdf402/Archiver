@@ -35,11 +35,7 @@
             // write the infos to the console
             // (is not done with the reading part to have as little instructions in the file stream as possible)
             ConsoleNormalOutput.WriteEmptyLine();
-            for (int fileCounter = 0; fileCounter < metaInformation.FileAmount; fileCounter++)
-            {
-                ConsoleNormalOutput.WriteFileInformation(fileInformation[fileCounter]);
-            }
-
+            ConsoleNormalOutput.WriteFileNames(fileInformation);
             ConsoleNormalOutput.WriteEmptyLine();
 
             return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, "list execution");
