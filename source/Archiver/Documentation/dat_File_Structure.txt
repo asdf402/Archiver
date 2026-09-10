@@ -6,7 +6,7 @@
 [FilesSizeUncompressed]	long	| position 23 - 30
 				(from here position will change, only counts for create)
 [FileSizeCompressed]	long	| position 31 - 38
-[FileSizeUncompressed]	long	| position 39 11- 46
+[FileSizeUncompressed]	long	| position 39 - 46
 [FileNameLength]	int	| position 47 - 50
 [FileName]		byte[]	| position 51
 
