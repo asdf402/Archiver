@@ -1,7 +1,7 @@
-﻿using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
+    using System.Text;
+
     public class ArchiveReader
     {
         public FileInformation ReadFileInformation(BinaryReader reader)
@@ -16,6 +16,23 @@ namespace Archiver
             return new FileInformation(
                 fileName,
                 fileSizeUncompressed,
+                fileSizeCompressed);
+        }
+
+        public FileInformation ReadFileInformationWithoutUncompressed(BinaryReader reader)
+        {
+            FileInformation fileInformation = new FileInformation(string.Empty, 0, 0);
+
+            long fileSizeCompressed = reader.ReadInt64();
+            reader.BaseStream.Position += fileInformation.FileSizeUncompressedTypeSize;
+            int fileNameLength = reader.ReadInt32();
+
+            byte[] fileNameByte = reader.ReadBytes(fileNameLength);
+            string fileName = Encoding.UTF8.GetString(fileNameByte);
+
+            return new FileInformation(
+                fileName,
+                0,
                 fileSizeCompressed);
         }
 
