@@ -108,9 +108,22 @@
             }
         }
 
+        public long EndOfMetaInformationPosition
+        {
+            get
+            {
+                return 31;
+            }
+        }
+
         public void IncreaseFileAmount()
         {
             this.FileAmount++;
+        }
+
+        public void AddFileAmount(uint addedFileAmount)
+        {
+            this.FileAmount += addedFileAmount;
         }
 
         public void AddFileSizeUncompressed(long addedFileSizeUncompressed)
