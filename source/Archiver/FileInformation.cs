@@ -17,26 +17,10 @@
             private set;
         }
 
-        public int FileNameSize
-        {
-            get
-            {
-                return Encoding.UTF8.GetByteCount(this.FileName);
-            }
-        }
-
         public long FileSizeUncompressed
         {
             get;
             private set;
-        }
-
-        public int FileSizeUncompressedTypeSize
-        {
-            get
-            {
-                return sizeof(long);
-            }
         }
 
         public long FileSizeCompressed
@@ -45,11 +29,11 @@
             private set;
         }
 
-        public int FileSizeCompressedTypeSize
+        public int FileNameSize
         {
             get
             {
-                return sizeof(long);
+                return Encoding.UTF8.GetByteCount(this.FileName);
             }
         }
 
