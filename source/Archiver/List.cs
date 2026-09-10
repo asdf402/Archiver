@@ -6,8 +6,10 @@
         {
             ArchiveReader archiveReader = new ArchiveReader();
             ArchiveInformation archiveInformation = new ArchiveInformation();
-            MetaInformation metaInformation = new MetaInformation(new DateTime(), new NoCompress(), 0, 0);
+            MetaInformationPositions metaInformationPositions = new MetaInformationPositions();
             FileInformation[] fileInformation;
+
+            uint fileAmount;
 
             // read from the archive
             try
@@ -15,12 +17,12 @@
                 FileStream source = new FileStream(parsedArguments.Source, FileMode.Open);
                 using (BinaryReader reader = new BinaryReader(source))
                 {
-                    reader.BaseStream.Position = metaInformation.FileAmountFilePosition;
-                    metaInformation.AddFileAmount(reader.ReadUInt32());
-                    reader.BaseStream.Position = metaInformation.EndOfMetaInformationPosition;
+                    reader.BaseStream.Position = metaInformationPositions.FileAmountFilePosition;
+                    fileAmount = reader.ReadUInt32();
+                    reader.BaseStream.Position = metaInformationPositions.EndOfMetaInformationPosition;
 
-                    fileInformation = new FileInformation[metaInformation.FileAmount];
-                    for (uint fileCounter = 0; fileCounter < metaInformation.FileAmount; fileCounter++)
+                    fileInformation = new FileInformation[fileAmount];
+                    for (uint fileCounter = 0; fileCounter < fileAmount; fileCounter++)
                     {
                         fileInformation[fileCounter] = archiveReader.ReadFileInformationWithoutUncompressed(reader);
                         reader.BaseStream.Position += fileInformation[fileCounter].FileSizeCompressed;

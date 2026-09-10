@@ -52,14 +52,6 @@
             private set;
         }
 
-        public long CreationDateFilePosition
-        {
-            get
-            {
-                return 11;
-            }
-        }
-
         public ICompress Compress
         {
             get;
@@ -72,48 +64,16 @@
             private set;
         }
 
-        public uint CompressTypeFilePosition
-        {
-            get
-            {
-                return 7;
-            }
-        }
-
         public uint FileAmount
         {
             get;
             private set;
         }
 
-        public uint FileAmountFilePosition
-        {
-            get
-            {
-                return 19;
-            }
-        }
-
         public long FilesSizeUncompressed
         {
             get;
             private set;
-        }
-
-        public long FilesSizeUncompressedFilePosition
-        {
-            get
-            {
-                return 23;
-            }
-        }
-
-        public long EndOfMetaInformationPosition
-        {
-            get
-            {
-                return 31;
-            }
         }
 
         public void IncreaseFileAmount()

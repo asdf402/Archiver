@@ -21,10 +21,10 @@
 
         public FileInformation ReadFileInformationWithoutUncompressed(BinaryReader reader)
         {
-            FileInformation fileInformation = new FileInformation(string.Empty, 0, 0);
+            FileInformationTypeSize fileInformationTypeSize = new FileInformationTypeSize();
 
             long fileSizeCompressed = reader.ReadInt64();
-            reader.BaseStream.Position += fileInformation.FileSizeUncompressedTypeSize;
+            reader.BaseStream.Position += fileInformationTypeSize.FileSizeUncompressedTypeSize;
             int fileNameLength = reader.ReadInt32();
 
             byte[] fileNameByte = reader.ReadBytes(fileNameLength);
