@@ -14,7 +14,7 @@
             }
         }
 
-        public long ArchiveIdentifierLength
+        public int ArchiveIdentifierLength
         {
             get
             {

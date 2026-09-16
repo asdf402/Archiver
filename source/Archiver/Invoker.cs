@@ -35,7 +35,7 @@
                 throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
             }
 
-            return this.command.Execute(parsedArguments);
+            return this.command.Execute(parsedArguments, fileStreamOpenTest);
         }
     }
 }

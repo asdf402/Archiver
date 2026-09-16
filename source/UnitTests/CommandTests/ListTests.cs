@@ -16,7 +16,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -44,7 +44,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -82,7 +82,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -115,7 +115,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
                 Assert.Contains(
@@ -163,7 +163,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
 
@@ -192,7 +192,7 @@ namespace Archiver.Tests
             ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
             List list = new List();
 
-            Result result = list.Execute(parsedArguments);
+            Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
             Assert.True(result.ErrorOccured);
         }
@@ -225,7 +225,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateListArguments(archivePath);
                 List list = new List();
 
-                Result result = list.Execute(parsedArguments);
+                Result result = list.Execute(parsedArguments, fileStreamOpenTest);
 
                 Assert.False(result.ErrorOccured);
 
