@@ -5,9 +5,8 @@
         public Result Execute(ParsedArguments parsedArguments)
         {
             ArchiveReader archiveReader = new ArchiveReader();
-            ArchiveInformation archiveInformation = new ArchiveInformation();
             MetaInformationPositions metaInformationPositions = new MetaInformationPositions();
-            FileInformation[] fileInformation;
+            FileInformation fileInformation;
 
             uint fileAmount;
 
@@ -19,13 +18,16 @@
                 {
                     reader.BaseStream.Position = metaInformationPositions.FileAmountFilePosition;
                     fileAmount = reader.ReadUInt32();
-                    reader.BaseStream.Position = metaInformationPositions.EndOfMetaInformationPosition;
+                    reader.BaseStream.Position = metaInformationPositions.EndOfMetaInformation;
 
-                    fileInformation = new FileInformation[fileAmount];
                     for (uint fileCounter = 0; fileCounter < fileAmount; fileCounter++)
                     {
-                        fileInformation[fileCounter] = archiveReader.ReadFileInformationWithoutUncompressed(reader);
-                        reader.BaseStream.Position += fileInformation[fileCounter].FileSizeCompressed;
+                        fileInformation = archiveReader.ReadFileInformationWithoutUncompressed(reader);
+                        reader.BaseStream.Position += fileInformation.FileSizeCompressed;
+
+                        ConsoleNormalOutput.WriteEmptyLine();
+                        ConsoleNormalOutput.WriteFileNames(fileInformation.FileName);
+                        ConsoleNormalOutput.WriteEmptyLine();
                     }
                 }
             }
@@ -33,12 +35,6 @@
             {
                 return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenSource, "list execution");
             }
-
-            // write the infos to the console
-            // (is not done with the reading part to have as little instructions in the file stream as possible)
-            ConsoleNormalOutput.WriteEmptyLine();
-            ConsoleNormalOutput.WriteFileNames(fileInformation);
-            ConsoleNormalOutput.WriteEmptyLine();
 
             return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, "list execution");
         }
