@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Xunit;
 
 namespace Archiver.Tests
 {
@@ -16,7 +15,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+                Result result = info.Execute(parsedArguments);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -44,7 +43,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+                Result result = info.Execute(parsedArguments);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -82,7 +81,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+                Result result = info.Execute(parsedArguments);
 
                 Assert.False(result.ErrorOccured);
             }
@@ -101,7 +100,7 @@ namespace Archiver.Tests
             ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
             Info info = new Info();
 
-            Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+            Result result = info.Execute(parsedArguments);
 
             Assert.True(result.ErrorOccured);
         }
@@ -121,7 +120,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+                Result result = info.Execute(parsedArguments);
 
                 Assert.True(result.ErrorOccured);
             }
@@ -154,7 +153,7 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                info.Execute(parsedArguments, fileStreamOpenTest);
+                info.Execute(parsedArguments);
 
                 Assert.Contains(
                     "important.txt",
@@ -201,9 +200,9 @@ namespace Archiver.Tests
                 ParsedArguments parsedArguments = this.CreateInfoArguments(archivePath);
                 Info info = new Info();
 
-                info.Execute(parsedArguments, fileStreamOpenTest);
+                info.Execute(parsedArguments);
 
-                Result result = info.Execute(parsedArguments, fileStreamOpenTest);
+                Result result = info.Execute(parsedArguments);
 
                 Assert.False(result.ErrorOccured);
 
