@@ -39,7 +39,7 @@
 
         public void AddFileSizeCompressed(long fileSizeCompressedToAdd)
         {
-            this.FileSizeCompressed = fileSizeCompressedToAdd;
+            this.FileSizeCompressed += fileSizeCompressedToAdd;
         }
     }
 }

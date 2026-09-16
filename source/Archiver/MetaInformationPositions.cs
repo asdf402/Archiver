@@ -2,7 +2,15 @@
 {
     public class MetaInformationPositions
     {
-        public uint CompressTypeFilePosition
+        public int ArchiveHeaderPosition
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public int StartOfMetaInformation
         {
             get
             {
@@ -10,7 +18,15 @@
             }
         }
 
-        public long CreationDateFilePosition
+        public int CompressTypeFilePosition
+        {
+            get
+            {
+                return 7;
+            }
+        }
+
+        public int CreationDateFilePosition
         {
             get
             {
@@ -18,15 +34,7 @@
             }
         }
 
-        public long EndOfMetaInformationPosition
-        {
-            get
-            {
-                return 31;
-            }
-        }
-
-        public uint FileAmountFilePosition
+        public int FileAmountFilePosition
         {
             get
             {
@@ -34,11 +42,19 @@
             }
         }
 
-        public long FilesSizeUncompressedFilePosition
+        public int FilesSizeUncompressedFilePosition
         {
             get
             {
                 return 23;
+            }
+        }
+
+        public int EndOfMetaInformation
+        {
+            get
+            {
+                return 31;
             }
         }
     }
