@@ -3,7 +3,7 @@
     public class ParsedArguments
     {
         public ParsedArguments(
-            ICompress compress,
+            ICompression compress,
             byte retryAmount,
             TimeSpan waitTime,
             string source,
@@ -18,7 +18,7 @@
             this.MainCommand = mainCommand;
         }
 
-        public ICompress Compress
+        public ICompression Compress
         {
             get;
             private set;
