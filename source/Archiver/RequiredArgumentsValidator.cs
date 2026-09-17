@@ -134,7 +134,7 @@
             return true;
         }
 
-        private bool HasCompress(ICompress rle)
+        private bool HasCompress(ICompression rle)
         {
             if (rle is NoCompress)
             {

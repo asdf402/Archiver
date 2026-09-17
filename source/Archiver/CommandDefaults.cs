@@ -18,7 +18,7 @@
             }
         }
 
-        public ICompress Compress
+        public ICompression Compress
         {
             get
             {
