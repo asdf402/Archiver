@@ -21,6 +21,7 @@
             if (parsedResult.Result.ErrorOccured)
             {
                 parsedResult.Result.ErrorMessage?.Invoke(parsedResult.Result.WrongArgument);
+                Environment.Exit(1);
             }
 
             ParsedArguments parsedArguments = parsedResult.ParsedArguments;
@@ -31,6 +32,7 @@
             if (validationResult.ErrorOccured)
             {
                 validationResult.ErrorMessage?.Invoke(validationResult.WrongArgument);
+                Environment.Exit(1);
             }
 
             // third call the commands that are demandet from the user
@@ -40,6 +42,7 @@
             if (invokerResult.ErrorOccured)
             {
                 invokerResult.ErrorMessage?.Invoke(invokerResult.WrongArgument);
+                Environment.Exit(1);
             }
         }
     }

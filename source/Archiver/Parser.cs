@@ -13,7 +13,7 @@
         {
             // create local variables to have private setters in the ParsedArguments class
             MainCommands mainCommand = this.commandDefaults.MainCommand;
-            ICompress compress = this.commandDefaults.Compress;
+            ICompression compress = this.commandDefaults.Compress;
             byte retryAmount = this.commandDefaults.RetryAmount;
             TimeSpan waitAmount = this.commandDefaults.WaitTime;
             string source = this.commandDefaults.Path;

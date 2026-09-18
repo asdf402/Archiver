@@ -42,7 +42,7 @@
   <Class Name="Archiver.Append">
     <Position X="5.25" Y="8.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAQgAAAAA=</HashCode>
       <FileName>Append.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -58,7 +58,7 @@
   <Class Name="Archiver.RleCompress">
     <Position X="5.5" Y="16.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RleCompress.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -69,6 +69,7 @@
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Info.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Archiver.List">
     <Position X="5.25" Y="10.25" Width="3.75" />
@@ -195,7 +196,7 @@
   <Class Name="Archiver.NoCompress">
     <Position X="1.25" Y="16.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NoCompress.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -257,11 +258,11 @@
       <FileName>IValidator.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Archiver.ICompress">
-    <Position X="1.25" Y="15" Width="3.75" />
+  <Interface Name="Archiver.ICompression">
+    <Position X="1.25" Y="14.75" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ICompress.cs</FileName>
+      <HashCode>AAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICompression.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Archiver.MainCommands">

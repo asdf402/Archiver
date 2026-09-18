@@ -2,7 +2,7 @@
 {
     public class MetaInformation
     {
-        public MetaInformation(DateTime creationDate, ICompress compress, uint fileAmount, long filesSizeUncompressed)
+        public MetaInformation(DateTime creationDate, ICompression compress, uint fileAmount, long filesSizeUncompressed)
         {
             this.CreationDate = creationDate;
             this.Compress = compress;
@@ -52,7 +52,7 @@
             private set;
         }
 
-        public ICompress Compress
+        public ICompression Compress
         {
             get;
             private set;

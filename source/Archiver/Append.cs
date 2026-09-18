@@ -84,7 +84,7 @@
                                 using (BinaryReader binaryReader = new BinaryReader(source))
                                 {
                                     fileInformation.AddFileSizeCompressed(
-                                        metaInformation.Compress.Execute(binaryReader, binaryWriter));
+                                        metaInformation.Compress.Compress(binaryReader, binaryWriter));
                                 }
                             }
                             catch (IOException)
