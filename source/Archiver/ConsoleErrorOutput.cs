@@ -68,6 +68,11 @@ $@"{parsedArgument} should follow a describing parameter:
             Console.WriteLine($"Could not open or missed rights to read from the source ({source})");
         }
 
+        public static void WriteNoValidDatFile(string wrongArgument)
+        {
+            Console.WriteLine($"The .dat file is not in a valid form.\nSource: {wrongArgument}");
+        }
+
         private static void WritePrimaryCommands()
         {
             Console.WriteLine(

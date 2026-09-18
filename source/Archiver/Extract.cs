@@ -15,55 +15,94 @@
                 FileStream source = new FileStream(parsedArguments.Source, FileMode.Open);
                 using (BinaryReader binaryReader = new BinaryReader(source))
                 {
-                    metaInformation = archiveReader.ReadAllMetaInformation(binaryReader);
-
-                    binaryReader.BaseStream.Position = metaInformationPositions.EndOfMetaInformation;
-
                     try
                     {
-                        FileStream destination = new FileStream(parsedArguments.Destination, FileMode.OpenOrCreate);
-                        using (BinaryWriter binaryWriter = new BinaryWriter(destination))
-                        {
-                            for (int count = 0; count < metaInformation.FileAmount; count++)
-                            {
-                                fileInformation = archiveReader.ReadFileInformation(binaryReader);
-
-                                Directory.CreateDirectory(fileInformation.FileName);
-                                if (File.Exists(fileInformation.FileName))
-                                {
-                                    binaryReader.BaseStream.Position += fileInformation.FileSizeCompressed;
-                                    continue;
-                                }
-
-                                File.Create(fileInformation.FileName);
-
-                                try
-                                {
-                                    FileStream decompressDestination = new FileStream(fileInformation.FileName, FileMode.Open);
-                                    using (BinaryWriter binaryDecompressWriter = new BinaryWriter(decompressDestination))
-                                    {
-                                        metaInformation.Compress.Decompress(binaryReader, binaryWriter, fileInformation.FileSizeCompressed);
-                                    }
-                                }
-                                catch (IOException)
-                                {
-                                    throw new ArgumentException("can not open or write to the created file");
-                                }
-                            }
-                        }
+                        metaInformation = archiveReader.ReadAllMetaInformation(binaryReader);
                     }
-                    catch (IOException)
+                    catch (Exception)
                     {
-                        return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenDestination, parsedArguments.Destination);
+                        return new Result(
+                            true,
+                            ConsoleErrorOutput.WriteNoValidDatFile,
+                            parsedArguments.Source);
+                    }
+
+                    this.CreateDirectories(parsedArguments.Destination);
+                    binaryReader.BaseStream.Position = metaInformationPositions.EndOfMetaInformation;
+
+                    for (int count = 0; count < metaInformation.FileAmount; count++)
+                    {
+                        try
+                        {
+                            fileInformation = archiveReader.ReadFileInformation(binaryReader);
+                        }
+                        catch (Exception)
+                        {
+                            return new Result(
+                                true,
+                                ConsoleErrorOutput.WriteNoValidDatFile,
+                                parsedArguments.Source);
+                        }
+
+                        string fullPath = Path.Combine(
+                            parsedArguments.Destination, fileInformation.FileName);
+                        this.CreateDirectories(fullPath);
+
+                        if (File.Exists(fullPath))
+                        {
+                            binaryReader.BaseStream.Position += fileInformation.FileSizeCompressed;
+                            continue;
+                        }
+
+                        try
+                        {
+                            this.WriteFileData(
+                                metaInformation.Compress,
+                                fileInformation.FileSizeCompressed,
+                                binaryReader,
+                                fullPath);
+                        }
+                        catch (Exception)
+                        {
+                            throw new ArgumentException(
+                                "can not open or write to the created file");
+                        }
                     }
                 }
             }
-            catch (IOException)
+            catch (Exception)
             {
-                return new Result(true, ConsoleErrorOutput.WriteCouldNotOpenSource, parsedArguments.Source);
+                return new Result(
+                    true,
+                    ConsoleErrorOutput.WriteCouldNotOpenSource,
+                    parsedArguments.Source);
             }
 
-            return new Result(false, ConsoleErrorOutput.WriteNoErrorOccurred, "extract command");
+            return new Result(
+                false,
+                ConsoleErrorOutput.WriteNoErrorOccurred,
+                "extract command");
+        }
+
+        private void WriteFileData(
+            ICompression compression, long fileSizeCompressed, BinaryReader binaryReader, string fullPath)
+        {
+            FileStream decompressDestination = File.Create(fullPath);
+            using (BinaryWriter binaryWriter = new BinaryWriter(decompressDestination))
+            {
+                compression.Decompress(
+                    binaryReader, binaryWriter, fileSizeCompressed);
+            }
+        }
+
+        private void CreateDirectories(string fullPath)
+        {
+            string? directoryPath = Path.GetDirectoryName(fullPath);
+            if (directoryPath != null &&
+                directoryPath != string.Empty)
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
         }
     }
 }
