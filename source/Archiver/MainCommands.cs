@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Archiver
+﻿namespace Archiver
 {
     public enum MainCommands
     {
@@ -12,6 +7,6 @@ namespace Archiver
         Extract,
         Info,
         List,
-        None
+        None,
     }
 }
