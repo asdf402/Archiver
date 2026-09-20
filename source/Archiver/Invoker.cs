@@ -35,13 +35,27 @@
                 throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
             }
 
-            try
+            Result result = new Result(
+                true,
+                ConsoleErrorOutput.WriteNoValidDatFile,
+                parsedArguments.MainCommand.ToString());
+
+            for (int counter = 0; counter < parsedArguments.RetryAmount; counter++)
             {
-                return this.command.Execute(parsedArguments);
+                try
+                {
+                    result = this.command.Execute(parsedArguments);
+                    break;
+                }
+                catch (Exception)
+                {
+                    Thread.Sleep(parsedArguments.WaitTime);
+                }
             }
-            catch (Exception)
+
+            if (result.ErrorOccured)
             {
-                return new Result(true, ConsoleErrorOutput.WriteNoValidDatFile, parsedArguments.MainCommand.ToString());
+                return result;
             }
         }
     }
