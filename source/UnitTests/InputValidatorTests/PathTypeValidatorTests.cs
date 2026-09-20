@@ -1,4 +1,5 @@
 ﻿using Archiver;
+using Archiver.Commands;
 
 namespace UnitTests.ValidatorTests
 {
