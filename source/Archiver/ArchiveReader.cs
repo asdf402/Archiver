@@ -13,24 +13,17 @@
 
         public FileInformation ReadFileInformation(BinaryReader reader)
         {
-            try
-            {
-                long fileSizeCompressed = reader.ReadInt64();
-                long fileSizeUncompressed = reader.ReadInt64();
-                int fileNameLength = reader.ReadInt32();
+            long fileSizeCompressed = reader.ReadInt64();
+            long fileSizeUncompressed = reader.ReadInt64();
+            int fileNameLength = reader.ReadInt32();
 
-                byte[] fileNameByte = reader.ReadBytes(fileNameLength);
-                string fileName = Encoding.UTF8.GetString(fileNameByte);
+            byte[] fileNameByte = reader.ReadBytes(fileNameLength);
+            string fileName = Encoding.UTF8.GetString(fileNameByte);
 
-                return new FileInformation(
-                    fileName,
-                    fileSizeUncompressed,
-                    fileSizeCompressed);
-            }
-            catch (Exception)
-            {
-                throw new ArgumentException("the file information are in the wrong format");
-            }
+            return new FileInformation(
+                fileName,
+                fileSizeUncompressed,
+                fileSizeCompressed);
         }
 
         public FileInformation ReadFileInformationWithoutUncompressed(BinaryReader reader)
@@ -52,18 +45,11 @@
 
         public MetaInformation ReadAllMetaInformation(BinaryReader reader)
         {
-            try
-            {
-                return new MetaInformation(
-                    new DateTime(this.ReadCreationDateTicks(reader)),
-                    this.ReadCompressType(reader),
-                    this.ReadFileAmount(reader),
-                    this.ReadFileSizeUncompressed(reader));
-            }
-            catch (Exception)
-            {
-                throw new ArgumentException("the meta information are in the wrong format");
-            }
+            return new MetaInformation(
+                new DateTime(this.ReadCreationDateTicks(reader)),
+                this.ReadCompressType(reader),
+                this.ReadFileAmount(reader),
+                this.ReadFileSizeUncompressed(reader));
         }
 
         public string ReadArchiveHeader(BinaryReader reader)
