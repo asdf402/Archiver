@@ -20,15 +20,16 @@
                     fileAmount = reader.ReadUInt32();
                     reader.BaseStream.Position = metaInformationPositions.EndOfMetaInformation;
 
+                    ConsoleNormalOutput.WriteEmptyLine();
                     for (uint fileCounter = 0; fileCounter < fileAmount; fileCounter++)
                     {
                         fileInformation = archiveReader.ReadFileInformationWithoutUncompressed(reader);
                         reader.BaseStream.Position += fileInformation.FileSizeCompressed;
 
-                        ConsoleNormalOutput.WriteEmptyLine();
                         ConsoleNormalOutput.WriteFileNames(fileInformation.FileName);
-                        ConsoleNormalOutput.WriteEmptyLine();
                     }
+
+                    ConsoleNormalOutput.WriteEmptyLine();
                 }
             }
             catch (IOException)
