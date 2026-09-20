@@ -24,7 +24,8 @@
                     this.command = new List();
                     break;
                 default:
-                    throw new InvalidOperationException($"the given command ({command}) is not jet in the switch statment");
+                    throw new InvalidOperationException(
+                        $"the given command ({command}) is not jet in the switch statment");
             }
         }
 
@@ -32,17 +33,34 @@
         {
             if (this.command == null)
             {
-                throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
+                throw new InvalidOperationException(
+                    "Call Invoker.SetCommand first before calling Invoker.ExecuteCommand." +
+                    "The current command to be executed is null.");
             }
 
-            try
+            Result result = new Result(
+                true,
+                ConsoleErrorOutput.WriteNoValidDatFile,
+                parsedArguments.MainCommand.ToString());
+
+            for (int counter = 0; counter < parsedArguments.RetryAmount; counter++)
             {
-                return this.command.Execute(parsedArguments);
+                try
+                {
+                    result = this.command.Execute(parsedArguments);
+                    break;
+                }
+                catch (Exception)
+                {
+                    // do not wait when it is the last retry
+                    if (counter < parsedArguments.RetryAmount - 1)
+                    {
+                        Thread.Sleep(parsedArguments.WaitTime);
+                    }
+                }
             }
-            catch (Exception)
-            {
-                return new Result(true, ConsoleErrorOutput.WriteNoValidDatFile, parsedArguments.MainCommand.ToString());
-            }
+
+            return result;
         }
     }
 }
