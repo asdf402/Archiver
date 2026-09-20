@@ -53,10 +53,7 @@
                 }
             }
 
-            if (result.ErrorOccured)
-            {
-                return result;
-            }
+            return result;
         }
     }
 }
