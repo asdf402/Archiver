@@ -24,7 +24,8 @@
                     this.command = new List();
                     break;
                 default:
-                    throw new InvalidOperationException($"the given command ({command}) is not jet in the switch statment");
+                    throw new InvalidOperationException(
+                        $"the given command ({command}) is not jet in the switch statment");
             }
         }
 
@@ -32,7 +33,9 @@
         {
             if (this.command == null)
             {
-                throw new InvalidOperationException("Call Invoker.SetCommand first before calling Invoker.ExecuteCommand. The current command to be executed is null.");
+                throw new InvalidOperationException(
+                    "Call Invoker.SetCommand first before calling Invoker.ExecuteCommand." +
+                    "The current command to be executed is null.");
             }
 
             Result result = new Result(
@@ -49,7 +52,11 @@
                 }
                 catch (Exception)
                 {
-                    Thread.Sleep(parsedArguments.WaitTime);
+                    // do not wait when it is the last retry
+                    if (counter < parsedArguments.RetryAmount - 1)
+                    {
+                        Thread.Sleep(parsedArguments.WaitTime);
+                    }
                 }
             }
 
