@@ -1,4 +1,4 @@
-﻿namespace Archiver
+﻿namespace Archiver.Commands
 {
     public class CommandDefaults
     {

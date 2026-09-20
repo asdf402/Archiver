@@ -1,6 +1,7 @@
-﻿namespace UnitTests
+﻿namespace UnitTests.InputParserTests
 {
     using Archiver;
+    using Archiver.Commands;
 
     public class ParserTests
     {

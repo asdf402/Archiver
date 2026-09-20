@@ -1,4 +1,6 @@
-﻿namespace Archiver
+﻿using Archiver.Commands;
+
+namespace Archiver
 {
     public class RequiredArgumentsValidator : IValidator
     {
