@@ -4,20 +4,24 @@
     {
         public long Compress(BinaryReader binaryReader, BinaryWriter binaryWriter)
         {
-            int readBytes = 0;
-            long readBytesSum = readBytes;
+            int compressedSize = 0;
 
             byte currentByte;
             byte nextByte;
-            int sameByteCounter = 0;
+            int sameByteCounter = 1;
+            bool endOfFile = false;
 
-            do
+            currentByte = binaryReader.ReadByte();
+
+            while (!endOfFile)
             {
-                currentByte = binaryReader.ReadByte();
-                readBytes++;
-
                 if (!this.ReadNextByte(binaryReader, out nextByte))
                 {
+                    compressedSize += 2;
+                    binaryWriter.Write(Convert.ToByte(sameByteCounter));
+                    binaryWriter.Write(currentByte);
+
+                    endOfFile = true;
                     break;
                 }
 
@@ -28,15 +32,16 @@
                 }
                 else
                 {
-                    binaryWriter.Write(sameByteCounter);
+                    compressedSize += 2;
+                    binaryWriter.Write(Convert.ToByte(sameByteCounter));
                     binaryWriter.Write(currentByte);
-                    sameByteCounter = 0;
+
+                    sameByteCounter = 1;
+                    currentByte = nextByte;
                 }
+            }
 
-                readBytesSum += readBytes;
-            } while (readBytes > 0);
-
-            return readBytesSum;
+            return compressedSize;
         }
 
         public void Decompress(BinaryReader binaryReader, BinaryWriter binaryWriter, long bytesToRead)
@@ -45,7 +50,7 @@
             byte dataByte;
             long readBytes = 0;
 
-            while (readBytes > bytesToRead)
+            while (readBytes < bytesToRead)
             {
                 compressedByteCounter = binaryReader.ReadByte();
                 dataByte = binaryReader.ReadByte();
@@ -55,7 +60,7 @@
                     binaryWriter.Write(dataByte);
                 }
 
-                readBytes++;
+                readBytes += 2;
             }
         }
 
