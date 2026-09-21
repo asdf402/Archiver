@@ -25,7 +25,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Create);
+                new Create());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -41,7 +41,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Append);
+                new Append());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -57,7 +57,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Extract);
+                new Extract());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -73,7 +73,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 this.commandDefaults.Path,
-                MainCommands.Info);
+                new Info());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -89,7 +89,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 this.commandDefaults.Path,
-                MainCommands.List);
+                new List());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -105,7 +105,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.None);
+                new None());
 
             Assert.False(this.pathTypeValidator.IsValid(parsed));
         }
@@ -123,7 +123,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Create);
+                new Create());
 
             Assert.False(this.pathTypeValidator.IsValid(parsed));
         }
@@ -140,7 +140,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Create);
+                new Create());
 
             Assert.True(this.pathTypeValidator.IsValid(parsed));
         }
@@ -156,7 +156,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 source,
                 destination,
-                MainCommands.Create);
+                new Create());
 
             Assert.False(this.pathTypeValidator.IsValid(parsed));
         }

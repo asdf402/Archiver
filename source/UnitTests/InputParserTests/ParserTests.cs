@@ -28,7 +28,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             AssertDefaultArguments(parsedResult);
         }
 
@@ -46,7 +46,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Append, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Append>(parsedResult.ParsedArguments.MainCommand);
             AssertDefaultArguments(parsedResult);
         }
 
@@ -64,7 +64,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Extract, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Extract>(parsedResult.ParsedArguments.MainCommand);
             AssertDefaultArguments(parsedResult);
         }
 
@@ -82,7 +82,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Info, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Info>(parsedResult.ParsedArguments.MainCommand);
             AssertDefaultArguments(parsedResult);
         }
 
@@ -100,7 +100,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.List, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<List>(parsedResult.ParsedArguments.MainCommand);
             AssertDefaultArguments(parsedResult);
         }
 
@@ -119,7 +119,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.IsType<RleCompress>(parsedResult.ParsedArguments.Compress);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
@@ -143,7 +143,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal(3, parsedResult.ParsedArguments.RetryAmount);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
@@ -167,7 +167,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal(TimeSpan.FromSeconds(5), parsedResult.ParsedArguments.WaitTime);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
@@ -192,7 +192,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal(expectedSource, parsedResult.ParsedArguments.Source);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Destination);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
@@ -217,7 +217,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal(expectedDestination, parsedResult.ParsedArguments.Destination);
             Assert.Equal(string.Empty, parsedResult.ParsedArguments.Source);
             Assert.Equal(this.commandDefaults.RetryAmount, parsedResult.ParsedArguments.RetryAmount);
@@ -246,7 +246,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.False(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("C:\\Temp\\Input", parsedResult.ParsedArguments.Source);
             Assert.Equal("archive.dat", parsedResult.ParsedArguments.Destination);
             Assert.IsType<RleCompress>(parsedResult.ParsedArguments.Compress);
@@ -266,7 +266,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.None, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<None>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("--unknown", parsedResult.Result.WrongArgument);
         }
 
@@ -283,7 +283,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("--unknown", parsedResult.Result.WrongArgument);
         }
 
@@ -301,7 +301,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("abc", parsedResult.Result.WrongArgument);
         }
 
@@ -318,7 +318,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.None, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<None>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("-s", parsedResult.Result.WrongArgument);
         }
 
@@ -335,7 +335,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("-r", parsedResult.Result.WrongArgument);
         }
 
@@ -352,7 +352,7 @@
             parsedResult = this.parser.Parse(commandLineArguments);
 
             Assert.True(parsedResult.Result.ErrorOccured);
-            Assert.Equal(MainCommands.Create, parsedResult.ParsedArguments.MainCommand);
+            Assert.IsType<Create>(parsedResult.ParsedArguments.MainCommand);
             Assert.Equal("-s", parsedResult.Result.WrongArgument);
         }
 

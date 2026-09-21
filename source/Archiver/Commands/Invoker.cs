@@ -4,44 +4,19 @@
     {
         private ICommand? command;
 
-        public void SetCommand(MainCommands command)
+        public void SetCommand(ICommand command)
         {
-            switch (command)
-            {
-                case MainCommands.Append:
-                    this.command = new Append();
-                    break;
-                case MainCommands.Create:
-                    this.command = new Create();
-                    break;
-                case MainCommands.Extract:
-                    this.command = new Extract();
-                    break;
-                case MainCommands.Info:
-                    this.command = new Info();
-                    break;
-                case MainCommands.List:
-                    this.command = new List();
-                    break;
-                default:
-                    throw new InvalidOperationException(
-                        $"the given command ({command}) is not jet in the switch statment");
-            }
+            this.command = command;
         }
 
         public Result ExecuteCommand(ParsedArguments parsedArguments)
         {
-            if (this.command == null)
-            {
-                throw new InvalidOperationException(
-                    "Call Invoker.SetCommand first before calling Invoker.ExecuteCommand." +
-                    "The current command to be executed is null.");
-            }
+            ArgumentNullException.ThrowIfNull(this.command);
 
             Result result = new Result(
                 true,
                 ConsoleErrorOutput.WriteNoValidDatFile,
-                parsedArguments.MainCommand.ToString());
+                "command");
 
             for (int counter = 0; counter < parsedArguments.RetryAmount; counter++)
             {

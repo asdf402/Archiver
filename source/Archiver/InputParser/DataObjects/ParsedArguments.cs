@@ -8,7 +8,7 @@
             TimeSpan waitTime,
             string source,
             string destination,
-            MainCommands mainCommand)
+            ICommand mainCommand)
         {
             this.Compress = compress;
             this.RetryAmount = retryAmount;
@@ -48,7 +48,7 @@
             private set;
         }
 
-        public MainCommands MainCommand
+        public ICommand MainCommand
         {
             get;
             private set;

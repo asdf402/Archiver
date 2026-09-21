@@ -353,7 +353,7 @@
                 TimeSpan.FromSeconds(1),
                 source,
                 destination,
-                MainCommands.Extract);
+                new Extract());
         }
 
         private void CreateArchive(
