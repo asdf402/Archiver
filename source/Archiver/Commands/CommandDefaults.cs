@@ -34,11 +34,11 @@
             }
         }
 
-        public MainCommands MainCommand
+        public ICommand MainCommand
         {
             get
             {
-                return MainCommands.None;
+                return new None();
             }
         }
     }
