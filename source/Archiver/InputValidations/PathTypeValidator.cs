@@ -6,26 +6,23 @@
         {
             switch (parsedArguments.MainCommand)
             {
-                case MainCommands.Create:
+                case Create:
                     return this.IsCreatePathValid(parsedArguments.Source, parsedArguments.Destination);
 
-                case MainCommands.Append:
+                case Append:
                     return this.IsAppendPathValid(parsedArguments.Source, parsedArguments.Destination);
 
-                case MainCommands.Extract:
+                case Extract:
                     return this.IsExtractPathValid(parsedArguments.Source, parsedArguments.Destination);
 
-                case MainCommands.Info:
+                case Info:
                     return this.IsInfoPathValid(parsedArguments.Source);
 
-                case MainCommands.List:
+                case List:
                     return this.IsListPathValid(parsedArguments.Source);
 
-                case MainCommands.None:
-                    return false;
-
                 default:
-                    return true;
+                    return false;
             }
         }
 
