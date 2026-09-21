@@ -200,7 +200,7 @@
                 waitTime,
                 "source",
                 "destination",
-                MainCommands.Extract);
+                new Extract());
         }
 
         private Result CreateSuccessResult()

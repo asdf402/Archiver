@@ -23,7 +23,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.Create);
+                new Create());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -37,7 +37,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.Create);
+                new Create());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -51,7 +51,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.Append);
+                new Append());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -65,7 +65,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.Append);
+                new Append());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -79,7 +79,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source.dat",
                 "destination",
-                MainCommands.Extract);
+                new Extract());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -93,7 +93,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source.dat",
                 "destination",
-                MainCommands.Extract);
+                new Extract());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -107,7 +107,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 this.commandDefaults.Path,
-                MainCommands.Info);
+                new Info());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -121,7 +121,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 this.commandDefaults.Path,
-                MainCommands.Info);
+                new Info());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -135,7 +135,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.Info);
+                new Info());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -149,7 +149,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 this.commandDefaults.Path,
-                MainCommands.List);
+                new List());
 
             Assert.True(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -163,7 +163,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 this.commandDefaults.Path,
-                MainCommands.List);
+                new List());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }
@@ -177,7 +177,7 @@ namespace UnitTests.ValidatorTests
                 this.commandDefaults.WaitTime,
                 "source",
                 "destination.dat",
-                MainCommands.List);
+                new List());
 
             Assert.False(this.requiredArgumentsValidator.IsValid(parsed));
         }

@@ -1,7 +1,7 @@
-﻿using Archiver.Commands;
-
-namespace Archiver
+﻿namespace Archiver
 {
+    using Archiver.Commands;
+
     public class RequiredArgumentsValidator : IValidator
     {
         private readonly CommandDefaults commandDefaults;
@@ -15,19 +15,19 @@ namespace Archiver
         {
             switch (parsedArguments.MainCommand)
             {
-                case MainCommands.Create:
+                case Create:
                     return this.CreateValidation(parsedArguments);
 
-                case MainCommands.Append:
+                case Append:
                     return this.AppendValidation(parsedArguments);
 
-                case MainCommands.Extract:
+                case Extract:
                     return this.ExtractValidation(parsedArguments);
 
-                case MainCommands.Info:
+                case Info:
                     return this.InfoValidation(parsedArguments);
 
-                case MainCommands.List:
+                case List:
                     return this.ListValidation(parsedArguments);
 
                 default:
