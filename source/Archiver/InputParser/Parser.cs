@@ -1,7 +1,7 @@
-﻿using Archiver.Commands;
-
-namespace Archiver
+﻿namespace Archiver
 {
+    using Archiver.Commands;
+
     public class Parser
     {
         private CommandDefaults commandDefaults;
@@ -14,7 +14,7 @@ namespace Archiver
         public ParsedResult Parse(string[] commandLineArguments)
         {
             // create local variables to have private setters in the ParsedArguments class
-            MainCommands mainCommand = this.commandDefaults.MainCommand;
+            ICommand mainCommand = this.commandDefaults.MainCommand;
             ICompression compress = this.commandDefaults.Compress;
             byte retryAmount = this.commandDefaults.RetryAmount;
             TimeSpan waitAmount = this.commandDefaults.WaitTime;
@@ -123,30 +123,30 @@ namespace Archiver
 
         // returns true if no error occured
         // returns false if an error occured
-        private bool ParsePrimaryArgument(string firstArgument, out MainCommands mainCommand)
+        private bool ParsePrimaryArgument(string firstArgument, out ICommand mainCommand)
         {
-            mainCommand = MainCommands.None;
+            mainCommand = new None();
 
             switch (firstArgument)
             {
                 case "-c" or "--create":
-                    mainCommand = MainCommands.Create;
+                    mainCommand = new Create();
                     break;
 
                 case "-a" or "--append":
-                    mainCommand = MainCommands.Append;
+                    mainCommand = new Append();
                     break;
 
                 case "-x" or "--extract":
-                    mainCommand = MainCommands.Extract;
+                    mainCommand = new Extract();
                     break;
 
                 case "-i" or "--info":
-                    mainCommand = MainCommands.Info;
+                    mainCommand = new Info();
                     break;
 
                 case "-l" or "--list":
-                    mainCommand = MainCommands.List;
+                    mainCommand = new List();
                     break;
 
                 default:
